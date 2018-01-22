@@ -1,0 +1,27 @@
+.info_img{
+    margin-top: 50px;
+}
+.info_ico_weibo{
+    display: inline-block;
+    margin-right:5px
+}
+.info_ico_weibo:hover
+{
+    margin-right:10px
+}
+.info_ico_tiwwtter{
+    display: inline-block;
+    margin-right: 70px;
+}
+.info_ico_tiwwtter:hover
+{
+    margin-right: 62px;
+    margin-left:13px;
+}
+.info_hidden{
+    display: none;
+}
+.info_pic{
+    display: inline-block;
+    margin-top: 60px;
+}
