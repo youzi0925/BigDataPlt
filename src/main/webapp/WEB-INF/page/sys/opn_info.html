@@ -48,8 +48,8 @@
                     <div class="ibox-title">
                         <h5>数据来源</h5>
                         <div class="ibox-tools">
-                            <a class="info_ico_weibo"><img src="${rc.contextPath}/statics/pic/weibo.jpg" width="50px" height="27px" v-on:click="show_weibo"></a>
-                            <a class="info_ico_tiwwtter"><img src="${rc.contextPath}/statics/pic/tiwtter.jpg" width="50px" height="27px" v-on:click="show_tiwtter"></a>
+                            <a class="info_ico_weibo info_bottom" id="weibo_ico"><img src="${rc.contextPath}/statics/pic/weibo_logo.png" width="30px" height="27px" v-on:click="show_weibo"></a>
+                            <a class="info_ico_twitter" id="twitter_ico"><img src="${rc.contextPath}/statics/pic/twitter_logo.png" width="30px" height="27px" v-on:click="show_tiwtter"></a>
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
                             </a>
@@ -62,10 +62,10 @@
                         </div>
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 350px">
-                        <div class="info_pic">
+                        <div class="info_pic" id="info_weibo">
                             <img src="${rc.contextPath}/statics/pic/weibo.jpg" width="180px" height="auto">
                         </div>
-                        <div class="info_pic">
+                        <div class="info_hidden" id="info_tiwwter">
                             <img src="${rc.contextPath}/statics/pic/tiwtter.jpg" width="180px" height="auto">
                         </div>
                     </div>
@@ -80,12 +80,18 @@
         el: '#info_ico',
         methods: {
             show_weibo: function () {
+                $('#weibo_ico').addClass("info_bottom");
+                $('#twitter_ico').removeClass("info_bottom");
+
                 $('#info_tiwwter').attr("class", "info_hidden");
-                $('#info_weibo').removeClass("info_hidden");
+                $('#info_weibo').attr("class", "info_pic");
             },
             show_tiwtter: function () {
+                $('#twitter_ico').addClass("info_bottom");
+                $('#weibo_ico').removeClass("info_bottom");
+
                 $('#info_weibo').attr("class", "info_hidden");
-                $('#info_tiwwter').removeClass("info_hidden");
+                $('#info_tiwwter').attr("class", "info_pic");
             }
         }
     });

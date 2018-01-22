@@ -3,23 +3,26 @@
 }
 .info_ico_weibo{
     display: inline-block;
-    margin-right:5px
+    margin-right:35px;
 }
 .info_ico_weibo:hover
 {
-    margin-right:10px
+    border-bottom: solid 2px #1ca195;
 }
-.info_ico_tiwwtter{
+.info_ico_twitter{
     display: inline-block;
     margin-right: 70px;
 }
 .info_ico_tiwwtter:hover
 {
-    margin-right: 62px;
-    margin-left:13px;
+    border-bottom: solid 2px #1ca195;
 }
 .info_hidden{
     display: none;
+    margin: 50px auto;
+}
+.info_bottom{
+    border-bottom: solid 2px #1ca195;
 }
 .info_pic{
     display: inline-block;
