@@ -30,7 +30,7 @@
                         <div class="row"> <!-- /.row -->
                             <div class="col-lg-5 col-sm-5 col-md-5">
                                   <div class="info_img">
-                                      <img src="${rc.contextPath}/statics/pic/lss.jpg" width="100%" height="auto" >
+                                      <img src="${rc.contextPath}/statics/pic/lss.jpg" height="200px" width="auto" >
                                   </div>
                             </div>
                             <div class="col-lg-7 col-sm-7 col-md-7">
@@ -63,10 +63,10 @@
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 350px">
                         <div class="info_pic" id="info_weibo">
-                            <img src="${rc.contextPath}/statics/pic/weibo.jpg" width="100%" height="auto">
+                            <img src="${rc.contextPath}/statics/pic/weibo.jpg" width="180px" height="auto">
                         </div>
                         <div class="info_hidden" id="info_tiwwter">
-                            <img src="${rc.contextPath}/statics/pic/tiwtter.jpg" width="100%" height="auto">
+                            <img src="${rc.contextPath}/statics/pic/twitter.jpg" width="180px" height="auto">
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 $('#weibo_ico').addClass("info_bottom");
                 $('#twitter_ico').removeClass("info_bottom");
 
-                $('#info_tiwwter').attr("class", "info_hidden");
+                $('#info_twitter').attr("class", "info_hidden");
                 $('#info_weibo').attr("class", "info_pic");
             },
             show_twitter: function () {
@@ -91,7 +91,7 @@
                 $('#weibo_ico').removeClass("info_bottom");
 
                 $('#info_weibo').attr("class", "info_hidden");
-                $('#info_tiwwter').attr("class", "info_pic");
+                $('#info_twitter').attr("class", "info_pic");
             }
         }
     });
