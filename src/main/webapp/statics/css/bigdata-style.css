@@ -28,3 +28,12 @@
     display: inline-block;
     margin-top: 60px;
 }
+
+/*opn-opn.html*/
+.opinion_block{
+    margin:40px auto;
+}
+.opinion-content{
+    color: #5e6e7e;
+    font-size: 15px;
+}
