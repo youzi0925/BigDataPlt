@@ -5,6 +5,7 @@
     <title>首位引发者</title>
     #parse("sys/mulheader.html")
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
+    <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -56,7 +57,7 @@
             </div>
         </div>
         <div class="row"> <!-- /.row -->
-            <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class="col-lg-8 col-sm-8 col-md-8">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>首位引发者</h5>
@@ -74,13 +75,202 @@
                         </div>
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;">
-                        <h1>放入图</h1>
-                        <button class="btn btn-danger  dim btn-large-dim" type="button"><i class="fa fa-heart"></i></button>
+                        <div id="first" style="width: 100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>首发内容</h5>
+                        <span class="label label-primary"></span>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 435px;">
+                        <!--<h1>这里是左图的点击触发内容</h1>-->
+                        <h4 style="padding-top:10px;padding-bottom: 25px">观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了。</h4>
+                        <div class="feed-element">
+                            <a href="profile.html" class="pull-left">
+                                <img alt="image" class="img-circle" src="${rc.contextPath}/statics/pic/lishipin_photo.png">
+                            </a>
+                            <div class="media-body ">
+                                <small class="pull-right">302万</small>
+                                <strong>梨视频</strong> <br>
+                                【细思极恐！首个获得公民身份的机器人，思维敏捷且能对答如流”[并不简单]】
+                                10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
+                                被问AI威胁论时，她回怼：你看太多好莱坞电影了。
+                                并表示：“我大多数时间都很积极向上。”[喵喵] <br>
+                                <small class="text-muted"><a href="http://weibo.com/6004281123/FsiTTehh6">2017-10-27 13:42</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>首发时间线</h5>
+                        <span class="label label-primary">timeline</span>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                        <h1>这里是内容</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('first'));
+
+    // 指定图表的配置项和数据
+    var base = +new Date(2017,9,26,7);
+    var oneHour = 3600 * 1000;
+    var date = [];
+    var data = [
+        0,0,0,0,0,0,0,0,0,0,0,30,10,30,20,20,10,0,20,10,0,0,40,30,20,10,40,40,40,110,190,180,340,260,180,180,100,50,130,10,10,0,10,0,10,0,10,30,20,10,60,80,40,60,60,50,50,40,20,20,110,80,90,40,20,0,0,0,0,10,10,10,20,60,120,70,90,50,20,10,50,30,20,30,10,10,20,0,0,0,0,0,0,0,0,20,0,30,20,20,70,20,20,40,0,20,0,10,0,0,0,0,0,0,10,0,10,0,0,10,10,0,0,0,0,10,0,0,10,10,0,20,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,0,0,20,20,10,0,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,10,0,0,0,0,0,10,10,0,0,0,0,0,0,0,0,0,0,10,0,10,0,0,0,10,10,0,0,10,10,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+    for (var i = 0; i < data.length; i++) {
+        var now = new Date(base += oneHour);
+        date.push([now.getFullYear(), now.getMonth()+1, now.getDate()].join('/')+' '+now.getHours()+'时');
+    }
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+//        title: {
+//            left: 'center',
+//            text: '微博传播趋势图'
+//        },
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: date
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '40%']
+        },
+        dataZoom: [{
+            type: 'inside',
+            start: 0,
+            end: 10
+        }, {
+            start: 0,
+            end: 10,
+            handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+            handleSize: '80%',
+            handleStyle: {
+                color: 'rgb(255, 153, 186)',
+                shadowBlur: 3,
+                shadowColor: 'rgba(0, 0, 0, 0.6)',
+                shadowOffsetX: 2,
+                shadowOffsetY: 2
+            }
+        }],
+        series: [
+            {
+                name:'微博数',
+                type:'line',
+                smooth:true,
+                symbol: 'none',
+                sampling: 'average',
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(255, 70, 131)'
+                    }
+                },
+                data: data,
+                markPoint: {
+                    symbol: 'pin',
+                    symbolSize: 20,
+
+                    itemStyle:{
+                        normal:{
+                            color:'#1ca195',
+                            label:{
+                                show:true,
+                                position:'top',
+                                formatter:function(param){
+                                    if(param.value == 1)
+                                        return '观点1'
+                                    if(param.value == 2)
+                                        return '观点2'
+                                    if(param.value == 3)
+                                        return '观点3'
+                                    if(param.value == 4)
+                                        return '观点4'
+                                    if(param.value == 5)
+                                        return '观点5'
+                                    if(param.value == 6)
+                                        return '观点6'
+                                }
+                            }
+                        }
+                    },
+                    data: [
+                        {name: '观点1', value: 1, xAxis: '2017/10/27 9时', yAxis: 12},
+                        {name: '观点2', value: 2, xAxis: '2017/10/27 13时', yAxis: 112},
+                        {name: '观点3', value: 3, xAxis: '2017/10/27 14时', yAxis: 192},
+                        {name: '观点4', value: 4, xAxis: '2017/10/27 17时', yAxis: 262},
+                        {name: '观点5', value: 5, xAxis: '2017/10/27 16时', yAxis: 342},
+                        {name: '观点6', value: 6, xAxis: '2017/10/29 11时', yAxis: 72}
+                    ]
+                }
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    window.onresize = myChart.resize;
+    myChart.on('click', function (params) {
+        if (params.componentType === 'markPoint') {
+            // 点击到了 markPoint 上
+            if (params.value === 5) {
+                window.open("http://www.baidu.com")
+                // 点击到了 index 为 5 的 series 的 markPoint 上。
+            }
+        }
+
+    });
+</script>
 </body>
 </html>
