@@ -26,11 +26,11 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block; height: 350px">
+                    <div class="ibox-content inspinia-timeline" style="display: block; height: 280px">
                         <div class="row"> <!-- /.row -->
                             <div class="col-lg-5 col-sm-5 col-md-5">
                                   <div class="info_img">
-                                      <img src="${rc.contextPath}/statics/pic/lss.jpg" height="200px" width="auto">
+                                      <img src="${rc.contextPath}/statics/pic/lss.jpg" width="100%" height="auto">
                                   </div>
                             </div>
                             <div class="col-lg-7 col-sm-7 col-md-7">
@@ -61,12 +61,42 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 350px">
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 280px">
                         <div class="info_pic" id="info_weibo">
                             <img src="${rc.contextPath}/statics/pic/weibo.jpg" width="180px" height="auto">
                         </div>
-                        <div class="info_hidden" id="info_tiwwter">
+                        <div class="info_pic" id="info_tiwwter">
                             <img src="${rc.contextPath}/statics/pic/tiwtter.jpg" width="180px" height="auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="ibox float-e-margins" id="info_category">
+                    <div class="ibox-title">
+                        <h5>数据形式</h5>
+                        <div class="ibox-tools">
+                            <a class="info_text info_bottom" id="text" v-on:click="show_text">文本</a>
+                            <a class="info_video" id="video" v-on:click="show_video">视频</a>
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 300px">
+                        <div class="info_pic" id="info_text">
+                            <h1>这里是文本</h1>
+                        </div>
+                        <div class="info_hidden" id="info_video">
+                            <h1>这里是视频</h1>
                         </div>
                     </div>
                 </div>
@@ -76,22 +106,41 @@
 </div>
 
 <script>
-    var change_data = new Vue({
-        el: '#info_ico',
+//    var change_data = new Vue({
+//        el: '#info_ico',
+//        methods: {
+//            show_weibo: function () {
+//                $('#weibo_ico').addClass("info_bottom");
+//                $('#twitter_ico').removeClass("info_bottom");
+//
+//                $('#info_tiwwter').attr("class", "info_hidden");
+//                $('#info_weibo').attr("class", "info_pic");
+//            },
+//            show_tiwtter: function () {
+//                $('#twitter_ico').addClass("info_bottom");
+//                $('#weibo_ico').removeClass("info_bottom");
+//
+//                $('#info_weibo').attr("class", "info_hidden");
+//                $('#info_tiwwter').attr("class", "info_pic");
+//            }
+//        }
+//    });
+    var change_category = new Vue({
+        el: '#info_category',
         methods: {
-            show_weibo: function () {
-                $('#weibo_ico').addClass("info_bottom");
-                $('#twitter_ico').removeClass("info_bottom");
+            show_text: function () {
+                $('#text').addClass("info_bottom");
+                $('#video').removeClass("info_bottom");
 
-                $('#info_tiwwter').attr("class", "info_hidden");
-                $('#info_weibo').attr("class", "info_pic");
+                $('#info_video').attr("class", "info_hidden");
+                $('#info_text').attr("class", "info_pic");
             },
-            show_tiwtter: function () {
-                $('#twitter_ico').addClass("info_bottom");
-                $('#weibo_ico').removeClass("info_bottom");
+            show_video: function () {
+                $('#video').addClass("info_bottom");
+                $('#text').removeClass("info_bottom");
 
-                $('#info_weibo').attr("class", "info_hidden");
-                $('#info_tiwwter').attr("class", "info_pic");
+                $('#info_text').attr("class", "info_hidden");
+                $('#info_video').attr("class", "info_pic");
             }
         }
     });
