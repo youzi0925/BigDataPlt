@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 300px">
-                        <div class="info_pic" id="info_text">
+                        <div class="info_show" id="info_text">
                             <h1>这里是文本</h1>
                         </div>
                         <div class="info_hidden" id="info_video">
@@ -133,14 +133,14 @@
                 $('#video').removeClass("info_bottom");
 
                 $('#info_video').attr("class", "info_hidden");
-                $('#info_text').attr("class", "info_pic");
+                $('#info_text').attr("class", "info_show");
             },
             show_video: function () {
                 $('#video').addClass("info_bottom");
                 $('#text').removeClass("info_bottom");
 
                 $('#info_text').attr("class", "info_hidden");
-                $('#info_video').attr("class", "info_pic");
+                $('#info_video').attr("class", "info_show");
             }
         }
     });

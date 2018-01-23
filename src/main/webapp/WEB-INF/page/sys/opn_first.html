@@ -98,20 +98,37 @@
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 435px;">
                         <!--<h1>这里是左图的点击触发内容</h1>-->
-                        <h4 style="padding-top:10px;padding-bottom: 25px">观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了。</h4>
-                        <div class="feed-element">
-                            <a href="profile.html" class="pull-left">
-                                <img alt="image" class="img-circle" src="${rc.contextPath}/statics/pic/lishipin_photo.png">
-                            </a>
-                            <div class="media-body ">
-                                <small class="pull-right">302万</small>
-                                <strong>梨视频</strong> <br>
-                                【细思极恐！首个获得公民身份的机器人，思维敏捷且能对答如流”[并不简单]】
-                                10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
-                                被问AI威胁论时，她回怼：你看太多好莱坞电影了。
-                                并表示：“我大多数时间都很积极向上。”[喵喵] <br>
-                                <small class="text-muted"><a href="http://weibo.com/6004281123/FsiTTehh6">2017-10-27 13:42</a></small>
+                        <div id="opint_1">
+                            <h4 style="padding-top:10px;padding-bottom: 25px">观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了。</h4>
+                            <div class="feed-element">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="${rc.contextPath}/statics/pic/lishipin_photo.png">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">302万</small>
+                                    <strong>梨视频</strong> <br>
+                                    【细思极恐！首个获得公民身份的机器人，思维敏捷且能对答如流”[并不简单]】
+                                    10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
+                                    被问AI威胁论时，她回怼：你看太多好莱坞电影了。
+                                    并表示：“我大多数时间都很积极向上。”[喵喵] <br>
+                                    <small class="text-muted"><a href="http://weibo.com/6004281123/FsiTTehh6">2017-10-27 13:42</a></small>
+                                </div>
                             </div>
+                        </div>
+                        <div id="opint_2" class="info_hidden">
+                            <h2>观点2</h2>
+                        </div>
+                        <div id="opint_3" class="info_hidden">
+                            <h2>观点3</h2>
+                        </div>
+                        <div id="opint_4" class="info_hidden">
+                            <h2>观点4</h2>
+                        </div>
+                        <div id="opint_5" class="info_hidden">
+                            <h2>观点5</h2>
+                        </div>
+                        <div id="opint_6" class="info_hidden">
+                            <h2>观点6</h2>
                         </div>
                     </div>
                 </div>
@@ -264,8 +281,58 @@
     myChart.on('click', function (params) {
         if (params.componentType === 'markPoint') {
             // 点击到了 markPoint 上
+            if (params.value === 1) {
+                $('#opint_1').attr("class", "opn_show");
+                $('#opint_2').attr("class", "info_hidden");
+                $('#opint_3').attr("class", "info_hidden");
+                $('#opint_4').attr("class", "info_hidden");
+                $('#opint_5').attr("class", "info_hidden");
+                $('#opint_6').attr("class", "info_hidden");
+                // 点击到了 index 为 1 的 series 的 markPoint 上。
+            }
+            if (params.value === 2) {
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "opn_show");
+                $('#opint_3').attr("class", "info_hidden");
+                $('#opint_4').attr("class", "info_hidden");
+                $('#opint_5').attr("class", "info_hidden");
+                $('#opint_6').attr("class", "info_hidden");
+                // 点击到了 index 为 5 的 series 的 markPoint 上。
+            }
+            if (params.value === 3) {
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "info_hidden");
+                $('#opint_3').attr("class", "opn_show");
+                $('#opint_4').attr("class", "info_hidden");
+                $('#opint_5').attr("class", "info_hidden");
+                $('#opint_6').attr("class", "info_hidden");
+                // 点击到了 index 为 5 的 series 的 markPoint 上。
+            }
+            if (params.value === 4) {
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "info_hidden");
+                $('#opint_3').attr("class", "info_hidden");
+                $('#opint_4').attr("class", "opn_show");
+                $('#opint_5').attr("class", "info_hidden");
+                $('#opint_6').attr("class", "info_hidden");
+                // 点击到了 index 为 5 的 series 的 markPoint 上。
+            }
             if (params.value === 5) {
-                window.open("http://www.baidu.com")
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "info_hidden");
+                $('#opint_3').attr("class", "info_hidden");
+                $('#opint_4').attr("class", "info_hidden");
+                $('#opint_5').attr("class", "opn_show");
+                $('#opint_6').attr("class", "info_hidden");
+                // 点击到了 index 为 5 的 series 的 markPoint 上。
+            }
+            if (params.value === 6) {
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "info_hidden");
+                $('#opint_3').attr("class", "info_hidden");
+                $('#opint_4').attr("class", "info_hidden");
+                $('#opint_5').attr("class", "info_hidden");
+                $('#opint_6').attr("class", "opn_show");
                 // 点击到了 index 为 5 的 series 的 markPoint 上。
             }
         }
