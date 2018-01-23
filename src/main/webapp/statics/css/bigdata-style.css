@@ -13,7 +13,7 @@
     display: inline-block;
     margin-right: 70px;
 }
-.info_ico_tiwwtter:hover
+.info_ico_twitter:hover
 {
     border-bottom: solid 2px #1ca195;
 }
@@ -42,4 +42,14 @@
     font-weight: 500;
     color: black !important;
     margin-right:70%;
+    margin-top: 60px;
+}
+
+/*opn-opn.html*/
+.opinion_block{
+    margin:40px auto;
+}
+.opinion-content{
+    color: #5e6e7e;
+    font-size: 15px;
 }
