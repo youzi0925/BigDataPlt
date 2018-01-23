@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>关键词云图</title>
     #parse("sys/mulheader.html")
+    <script src='${rc.contextPath}/statics/libs/echarts.simple.js'></script>
+    <script src="${rc.contextPath}/statics/libs/echarts-wordcloud.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -26,12 +28,226 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 500px;">
                         <h1>这里是关键词云图</h1>
+                        <div id="weibo_wordCloud" style="width: 50%; height: 400px;float: left"></div>
+                        <div id="twitter_wordCloud" style="width: 40%; height: 400px;float: right"></div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            var chart1 = echarts.init(document.getElementById('twitter_wordCloud'));
+            var keywords1 = {
+                "robot":4413,
+                "sophia":4307,
+                "Saudi":4099,
+                "Arabia":3453,
+                "citizenship":2348,
+                "named":928,
+                "citizen":908,
+                "bestows":719,
+                "granted":504,
+                "rights":459,
+                "humanoid":436,
+                "women":417,
+                "grants":403,
+                "future":398,
+                "investment":396,
+                "saud":391,
+                "initiative":365,
+                "speaks":362,
+                "meet":335,
+                "la":280,
+                "de":257,
+                "ciudadana":218,
+                "people":215,
+                "con":207,
+                "en":202,
+                "video":198,
+                "el":164,
+                "country":162,
+                "outraged":160,
+                "reason":122,
+                "primer":120,
+                "grant":105,
+                "elon":93,
+                "musk":93,
+                "woman":91,
+                "official":90,
+                "female":90,
+                "ciudadano":88,
+                "lifelike":86,
+                "ai":86,
+                "ms":85,
+                "derechos":83,
+                "pasa":81,
+                "arab":81
+            };
+
+            var data1 = [];
+            for (var name in keywords1) {
+                data1.push({
+                    name: name,
+                    value: Math.sqrt(keywords1[name])
+//                    value: keywords[name]
+                })
+            }
+
+            var maskImage1 = new Image();
+
+            var option1 = {
+                series: [ {
+                    type: 'wordCloud',
+                    sizeRange: [20, 60],
+                    rotationRange: [-90, 90],
+                    rotationStep: 45,
+                    gridSize: 7,
+                    shape: 'pentagon',
+                    maskImage: maskImage1,
+                    drawOutOfBound: false,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+//                            color:'#2AB0CA'
+                        },
+                        emphasis: {
+                            color: 'red'
+                        }
+                    },
+                    data: data1.sort(function (a, b) {
+                        return b.value  - a.value;
+                    })
+                } ]
+            };
+
+            maskImage1.onload = function () {
+                option1.series[0].maskImage
+                chart1.setOption(option1);
+            };
+
+            maskImage1.src = '${rc.contextPath}/statics/pic/wordCloud_square.png';
+            //            maskImage1.src = './wordCloud_circle.png';
+
+            window.onresize = function () {
+                chart1.resize();
+            };
+
+
+
+
+            var chart2 = echarts.init(document.getElementById('weibo_wordCloud'));
+
+            var keywords2 = {
+
+                "机器人":892,
+                "公民":537,
+                "身份":489,
+                "沙特":461,
+                "索菲亚":370,
+                "人类":293,
+                "未来":210,
+                "投资":198,
+                "首个":195,
+                "授予":194,
+                "大会":189,
+                "第一个":185,
+                "计划":166,
+                "威胁论":152,
+                "怼":151,
+                "时间":141,
+                "拥有":139,
+                "好莱坞":136,
+                "电影":136,
+                "看太多":128,
+                "对答如流":127,
+                "思维敏捷":116,
+                "史上":115,
+                "积极向上":98,
+                "反问":95,
+                "索菲娅":87,
+                "世界":81,
+                "首次":72,
+                "自我意识":67,
+                "国籍":65,
+                "沙特阿拉伯":59,
+                "视频":57,
+                "面对":57,
+                "毁灭":53,
+                "女性":52,
+                "采访":48,
+                "细思极恐":48,
+                "先例":48,
+                "人工智能":45,
+                "吃惊":45,
+                "回答":37,
+                "害怕":36,
+                "倡议":32,
+                "利雅得":31,
+                "马斯克":25,
+                "可怕":21
+            };
+
+            var data2 = [];
+            for (var name in keywords2) {
+                data2.push({
+                    name: name,
+                    value: Math.sqrt(keywords2[name])
+                })
+            }
+
+            var maskImage2 = new Image();
+
+            var option2 = {
+                series: [ {
+                    type: 'wordCloud',
+                    sizeRange: [15, 50],
+                    rotationRange: [-90, 90],
+                    rotationStep: 30,
+                    gridSize: 7,
+                    shape: 'pentagon',
+                    maskImage: maskImage2,
+                    drawOutOfBound: false,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+//                            color:'#2AB0CA'
+                        },
+                        emphasis: {
+                            color: 'red'
+                        }
+                    },
+                    data: data2.sort(function (a, b) {
+                        return b.value  - a.value;
+                    })
+                } ]
+            };
+
+            maskImage2.onload = function () {
+                option2.series[0].maskImage
+                chart2.setOption(option2);
+            };
+
+            maskImage2.src = '${rc.contextPath}/statics/pic/wordCloud_square.png';
+            //            maskImage2.src = './wordCloud_circle.png';
+
+            window.onresize = function () {
+                chart2.resize();
+            };
+
+        </script>
         <div class="row"> <!-- /.row -->
             <div class="col-lg-12 col-sm-12 col-md-12">
                 <div class="ibox float-e-margins">
