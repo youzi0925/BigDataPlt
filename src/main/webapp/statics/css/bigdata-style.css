@@ -49,5 +49,128 @@
 .opinion-content{
     color: #5e6e7e;
     font-size: 15px;
+<<<<<<< HEAD
     /*height:70px;*/
 }
+=======
+}
+
+/********知微样式**********/
+.mediaVue[_v-507a7011] {
+                           width: 100%;
+                           height: 100%;
+                           position: relative
+                       }
+
+.mediaVue ul[_v-507a7011] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 98%;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: relative
+}
+
+.mediaVue ul li[_v-507a7011] {
+    width: 100%;
+    height: 10%;
+    padding: 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: .2px;
+    border-bottom: 1px solid #262932
+}
+/*右边的背景颜色*/
+.mediaVue ul li .bang[_v-507a7011] {
+    background-color: rgba(151, 151, 151, 0.97);
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative
+}
+/*左边的背景颜色*/
+.mediaVue ul li .bang .bangjindu[_v-507a7011] {
+    background-color: #1cb395;
+    width: 0;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+    height: 100%;
+    border: 1px solid #199b82;
+    border-radius: 50px 0 0 50px
+}
+
+.mediaVue ul li .bang .content[_v-507a7011] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    line-height: 40px;
+    padding: 0 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+/*左边字的颜色*/
+.mediaVue ul li .bang .content .left[_v-507a7011] {
+    width: 60%;
+    height: 100%;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: nowrap
+
+}
+/*右边字的颜色*/
+.mediaVue ul li .bang .content .right[_v-507a7011] {
+    width: 40%;
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    padding-right: 10px
+}
+
+.mediaVue ul li .bang .content .right .num[_v-507a7011] {
+    font-size: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: nowrap
+}
+
+.mediaVue ul li .bang .content .right .meiti[_v-507a7011] {
+    line-height: 50px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+>>>>>>> 006b53edb552a1a8582d80089f332d38c28c6324
