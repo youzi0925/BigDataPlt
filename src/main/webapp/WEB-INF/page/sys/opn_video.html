@@ -3,8 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>视频解读</title>
+    #parse("sys/mulheader.html")
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
 </head>
 <body>
-<h1>视频解读</h1>
+<div id="wrapper">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>视频窗口</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="video.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="video.html#">Config option 1</a>
+                            </li>
+                            <li><a href="video.html#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                        <video width="100%" height="auto" controls="controls">
+                            <source src="${rc.contextPath}/statics/pic/video_small.webm" type="video/webm" />
+                        </video>
+                </div>
+            </div>
+        </div>
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>情感分析</h5>
+                        <span class="label label-primary"></span>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                        <h1>内容</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
