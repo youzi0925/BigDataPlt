@@ -16,7 +16,7 @@
 <div id="wrapper">
     <div class="wrapper wrapper-content">
         <div class="row">
-            <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class="col-lg-7 col-sm-7 col-md-7">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>关键词云图</h5>
@@ -33,228 +33,12 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 500px;">
-                        <!--<h1>这里是关键词云图</h1>-->
-                        <div id="weibo_wordCloud" style="width: 50%; height: 400px;float: left"></div>
-                        <div id="twitter_wordCloud" style="width: 40%; height: 400px;float: right"></div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 460px;">
+                        <div id='wordCloud' style="width: 100%; height: 460px;padding-top: 0"></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script>
-            var chart1 = echarts.init(document.getElementById('twitter_wordCloud'));
-            var keywords1 = {
-                "robot":4413,
-                "sophia":4307,
-                "Saudi":4099,
-                "Arabia":3453,
-                "citizenship":2348,
-                "named":928,
-                "citizen":908,
-                "bestows":719,
-                "granted":504,
-                "rights":459,
-                "humanoid":436,
-                "women":417,
-                "grants":403,
-                "future":398,
-                "investment":396,
-                "saud":391,
-                "initiative":365,
-                "speaks":362,
-                "meet":335,
-                "la":280,
-                "de":257,
-                "ciudadana":218,
-                "people":215,
-                "con":207,
-                "en":202,
-                "video":198,
-                "el":164,
-                "country":162,
-                "outraged":160,
-                "reason":122,
-                "primer":120,
-                "grant":105,
-                "elon":93,
-                "musk":93,
-                "woman":91,
-                "official":90,
-                "female":90,
-                "ciudadano":88,
-                "lifelike":86,
-                "ai":86,
-                "ms":85,
-                "derechos":83,
-                "pasa":81,
-                "arab":81
-            };
-
-            var data1 = [];
-            for (var name in keywords1) {
-                data1.push({
-                    name: name,
-                    value: Math.sqrt(keywords1[name])
-//                    value: keywords[name]
-                })
-            }
-
-            var maskImage1 = new Image();
-
-            var option1 = {
-                series: [ {
-                    type: 'wordCloud',
-                    sizeRange: [20, 60],
-                    rotationRange: [-90, 90],
-                    rotationStep: 45,
-                    gridSize: 7,
-                    shape: 'pentagon',
-                    maskImage: maskImage1,
-                    drawOutOfBound: false,
-                    textStyle: {
-                        normal: {
-                            color: function () {
-                                return 'rgb(' + [
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160)
-                                ].join(',') + ')';
-                            }
-//                            color:'#2AB0CA'
-                        },
-                        emphasis: {
-                            color: 'red'
-                        }
-                    },
-                    data: data1.sort(function (a, b) {
-                        return b.value  - a.value;
-                    })
-                } ]
-            };
-
-            maskImage1.onload = function () {
-                option1.series[0].maskImage
-                chart1.setOption(option1);
-            };
-
-            maskImage1.src = '${rc.contextPath}/statics/pic/wordCloud_square.png';
-            //            maskImage1.src = './wordCloud_circle.png';
-
-            window.onresize = function () {
-                chart1.resize();
-            };
-
-
-
-
-            var chart2 = echarts.init(document.getElementById('weibo_wordCloud'));
-
-            var keywords2 = {
-
-                "机器人":892,
-                "公民":537,
-                "身份":489,
-                "沙特":461,
-                "索菲亚":370,
-                "人类":293,
-                "未来":210,
-                "投资":198,
-                "首个":195,
-                "授予":194,
-                "大会":189,
-                "第一个":185,
-                "计划":166,
-                "威胁论":152,
-                "怼":151,
-                "时间":141,
-                "拥有":139,
-                "好莱坞":136,
-                "电影":136,
-                "看太多":128,
-                "对答如流":127,
-                "思维敏捷":116,
-                "史上":115,
-                "积极向上":98,
-                "反问":95,
-                "索菲娅":87,
-                "世界":81,
-                "首次":72,
-                "自我意识":67,
-                "国籍":65,
-                "沙特阿拉伯":59,
-                "视频":57,
-                "面对":57,
-                "毁灭":53,
-                "女性":52,
-                "采访":48,
-                "细思极恐":48,
-                "先例":48,
-                "人工智能":45,
-                "吃惊":45,
-                "回答":37,
-                "害怕":36,
-                "倡议":32,
-                "利雅得":31,
-                "马斯克":25,
-                "可怕":21
-            };
-
-            var data2 = [];
-            for (var name in keywords2) {
-                data2.push({
-                    name: name,
-                    value: Math.sqrt(keywords2[name])
-                })
-            }
-
-            var maskImage2 = new Image();
-
-            var option2 = {
-                series: [ {
-                    type: 'wordCloud',
-                    sizeRange: [15, 50],
-                    rotationRange: [-90, 90],
-                    rotationStep: 30,
-                    gridSize: 7,
-                    shape: 'pentagon',
-                    maskImage: maskImage2,
-                    drawOutOfBound: false,
-                    textStyle: {
-                        normal: {
-                            color: function () {
-                                return 'rgb(' + [
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160)
-                                ].join(',') + ')';
-                            }
-//                            color:'#2AB0CA'
-                        },
-                        emphasis: {
-                            color: 'red'
-                        }
-                    },
-                    data: data2.sort(function (a, b) {
-                        return b.value  - a.value;
-                    })
-                } ]
-            };
-
-            maskImage2.onload = function () {
-                option2.series[0].maskImage
-                chart2.setOption(option2);
-            };
-
-            maskImage2.src = '${rc.contextPath}/statics/pic/wordCloud_square.png';
-            //            maskImage2.src = './wordCloud_circle.png';
-
-            window.onresize = function () {
-                chart2.resize();
-            };
-
-        </script>
-        <div class="row"> <!-- /.row -->
-            <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class="col-lg-5 col-sm-5 col-md-5">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>关键词明细</h5>
@@ -276,12 +60,12 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content">
+                    <div class="ibox-content" style="height: 460px;">
                         <table class="table table-striped" id="keywords_table">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>微博关键词</th>
+                                <th>中文关键词</th>
                                 <th>次数</th>
                                 <th>Twitter关键词</th>
                                 <th>次数</th>
@@ -291,107 +75,142 @@
                             <tr>
                                 <td>1</td>
                                 <td>机器人</td>
-                                <td>892</td>
+                                <td>2860</td>
                                 <td>Sophia</td>
                                 <td>4307</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>公民</td>
-                                <td>537</td>
+                                <td>2202</td>
                                 <td>Saudi</td>
                                 <td>4099</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>身份</td>
-                                <td>489</td>
+                                <td>1661</td>
                                 <td>Arabia</td>
                                 <td>3453</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>沙特</td>
-                                <td>2000</td>
+                                <td>授予</td>
+                                <td>952</td>
                                 <td>citizenship</td>
                                 <td>2348</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>索菲亚</td>
-                                <td>370</td>
+                                <td>沙特</td>
+                                <td>916</td>
                                 <td>named</td>
                                 <td>928</td>
                             </tr>
                             <tr>
                                 <td>6</td>
                                 <td>人类</td>
-                                <td>293</td>
+                                <td>882</td>
                                 <td>citizen</td>
                                 <td>908</td>
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td>未来</td>
-                                <td>210</td>
+                                <td>索菲亚</td>
+                                <td>611</td>
                                 <td>bestows</td>
                                 <td>719</td>
                             </tr>
                             <tr>
                                 <td>8</td>
-                                <td>投资</td>
-                                <td>198</td>
+                                <td>首个</td>
+                                <td>568</td>
                                 <td>granted</td>
                                 <td>504</td>
                             </tr>
                             <tr>
                                 <td>9</td>
-                                <td>首个</td>
-                                <td>195</td>
+                                <td>第一个</td>
+                                <td>507</td>
                                 <td>rights</td>
                                 <td>459</td>
                             </tr>
                             <tr>
                                 <td>10</td>
-                                <td>授予</td>
-                                <td>194</td>
+                                <td>世界</td>
+                                <td>506</td>
                                 <td>humanoid</td>
                                 <td>436</td>
                             </tr>
                             <tr>
                                 <td>11</td>
-                                <td>大会</td>
-                                <td>189</td>
+                                <td>首位</td>
+                                <td>486</td>
                                 <td>women</td>
                                 <td>417</td>
                             </tr>
                             <tr>
                                 <td>12</td>
-                                <td>第一个</td>
-                                <td>185</td>
+                                <td>史上</td>
+                                <td>387</td>
                                 <td>granted</td>
                                 <td>403</td>
                             </tr>
                             <tr>
                                 <td>13</td>
-                                <td>计划</td>
-                                <td>166</td>
+                                <td>国籍</td>
+                                <td>284</td>
                                 <td>future</td>
                                 <td>398</td>
                             </tr>
                             <tr>
                                 <td>14</td>
-                                <td>威胁论</td>
-                                <td>152</td>
+                                <td>未来</td>
+                                <td>263</td>
                                 <td>investment</td>
                                 <td>396</td>
                             </tr>
                             <tr>
                                 <td>15</td>
-                                <td>怼</td>
-                                <td>151</td>
+                                <td>拥有</td>
+                                <td>252</td>
                                 <td>initiative</td>
                                 <td>365</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>开口</td>
+                                <td>242</td>
+                                <td>speaks</td>
+                                <td>362</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>可怕</td>
+                                <td>213</td>
+                                <td>meet</td>
+                                <td>335</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>惊呆</td>
+                                <td>203</td>
+                                <td>la</td>
+                                <td>280</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>毁灭</td>
+                                <td>202</td>
+                                <td>de</td>
+                                <td>257</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>投资</td>
+                                <td>198</td>
+                                <td>people</td>
+                                <td>215</td>
                             </tr>
                             </tbody>
                         </table>
@@ -399,6 +218,377 @@
                 </div>
             </div>
         </div>
+        <script>
+            var chart = echarts.init(document.getElementById('wordCloud'));
+
+            var keywords = {
+                "机器人":2860,
+                "公民":2202,
+                "身份":1661,
+                "授予":952,
+                "沙特":916,
+                "人类":882,
+                "索菲亚":611,
+                "首个":568,
+                "第一个":507,
+                "世界":506,
+                "首位":486,
+                "史上":387,
+                "国籍":284,
+                "未来":263,
+                "拥有":252,
+                "开口":242,
+                "可怕":213,
+                "惊呆":203,
+                "毁灭":202,
+                "投资":198,
+                "索菲娅":195,
+                "对答如流":190,
+                "大会":189,
+                "威胁论":185,
+                "怼":184,
+                "首次":182,
+                "沙特阿拉伯":170,
+                "计划":166,
+                "美女":158,
+                "全场":155,
+                "问":149,
+                "女性":146,
+                "时间":144,
+                "电影":142,
+                "好莱坞":137,
+                "回":135,
+                "思维":134,
+                "敏捷":132,
+                "看太多":128,
+                "全球":124,
+                "记住":120,
+                "名字":118,
+                "历史":117,
+                "人工智能":116,
+                "先例":114,
+                "我会":103,
+                "积极向上":98,
+                "反问":97,
+                "诞生":95,
+                "简单":94,
+                "全文":93,
+                "犯人":90,
+                "不犯":90,
+                "自我意识":88,
+                "恐":87,
+                "细思极":87,
+                "视频":74,
+                "国家":62,
+                "全世界":58,
+                "面对":57,
+                "真的":55,
+                "马斯克":53,
+                "采访":53,
+                "刚刚":52,
+                "星球":52,
+                "扬言":49,
+                "科技":48,
+                "首开":47,
+                "吃惊":45,
+                "揭秘":44,
+                "网友":41,
+                "意味着":40,
+                "地球":39,
+                "被授":38,
+                "生活":37,
+                "震惊":37,
+                "回答":37,
+                "害怕":37,
+                "正式":36,
+                "权利":35,
+                "回应":35,
+                "类人":32,
+                "倡议":32,
+                "转发":31,
+                "利雅得":31,
+                "网红":30,
+                "微博":30,
+                "合法":29,
+                "表情":29,
+                "说话":27,
+                "robot":4413,
+                "sophia":4307,
+                "saudi":4099,
+                "arabia":3453,
+                "citizenship":2348,
+                "named":928,
+                "citizen":908,
+                "bestows":719,
+                "granted":504,
+                "rights":459,
+                "humanoid":436,
+                "women":417,
+                "grants":403,
+                "future":398,
+                "investment":396,
+                "initiative":365,
+                "speaks":362,
+                "meet":335,
+                "la":280,
+                "de":257,
+                "people":215,
+                "con":207,
+                "en":202,
+                "video":198,
+                "el":164,
+                "country":162,
+                "outraged":160,
+                "reason":122,
+                "primer":120,
+                "grant":105,
+                "elon":93,
+                "musk":93,
+                "woman":91,
+                "official":90,
+                "female":90,
+                "ciudadano":88,
+                "lifelike":86,
+                "ai":86,
+                "ms":85,
+                "derechos":83,
+                "pasa":81,
+                "arab":81,
+                "convertirse":81,
+                "los":81,
+                "humanos":80,
+                "declared":80,
+                "mujeres":79,
+                "bromear":78,
+                "acabar":78,
+                "arabian":76,
+                "nonhuman":74,
+                "human":73,
+                "al":72,
+                "fii":69,
+                "otorga":69,
+                "receive":66,
+                "trollea":63,
+                "news":54,
+                "tiene":54,
+                "mxico":54,
+                "las":53,
+                "dar":53,
+                "reloaded":52,
+                "real":49,
+                "st":48,
+                "interview":45,
+                "denies":45,
+                "ponencia":42,
+                "obtuvo":40,
+                "conoce":40,
+                "va":37,
+                "conference":35,
+                "selfaware":35,
+                "watch":34,
+                "pertama":32,
+                "humans":32,
+                "nation":31
+            };
+
+            var data = [];
+            for (var name in keywords) {
+                data.push({
+                    name: name,
+                    value: Math.sqrt(keywords[name])
+                })
+            }
+
+            var maskImage = new Image();
+
+            var option = {
+                series: [ {
+                    type: 'wordCloud',
+                    sizeRange: [10, 50],
+                    rotationRange: [-90, 90],
+                    rotationStep: 45,
+                    gridSize: 5,
+                    shape: 'pentagon',
+                    maskImage: maskImage,
+                    drawOutOfBound: false,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            color: 'red'
+                        }
+                    },
+                    data: data.sort(function (a, b) {
+                        return b.value  - a.value;
+                    })
+                } ]
+            };
+
+            maskImage.onload = function () {
+                option.series[0].maskImage
+                chart.setOption(option);
+            };
+
+            maskImage.src = '${rc.contextPath}/statics/pic/wordCloud_square.png';
+            //            maskImage.src = './wordCloud_circle.png';
+
+            chart.setOption(option);
+            window.onresize = chart.resize;
+
+        </script>
+        <!--<div class="row"> &lt;!&ndash; /.row &ndash;&gt;-->
+            <!--<div class="col-lg-5 col-sm-5 col-md-5">-->
+                <!--<div class="ibox float-e-margins">-->
+                    <!--<div class="ibox-title">-->
+                        <!--<h5>关键词明细</h5>-->
+                        <!--<div class="ibox-tools">-->
+                            <!--<a class="collapse-link">-->
+                                <!--<i class="fa fa-chevron-up"></i>-->
+                            <!--</a>-->
+                            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">-->
+                                <!--<i class="fa fa-wrench"></i>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu dropdown-user">-->
+                                <!--<li><a href="table_basic.html#">Config option 1</a>-->
+                                <!--</li>-->
+                                <!--<li><a href="table_basic.html#">Config option 2</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                            <!--<a class="close-link">-->
+                                <!--<i class="fa fa-times"></i>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="ibox-content">-->
+                        <!--<table class="table table-striped" id="keywords_table">-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th>#</th>-->
+                                <!--<th>微博关键词</th>-->
+                                <!--<th>次数</th>-->
+                                <!--<th>Twitter关键词</th>-->
+                                <!--<th>次数</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                            <!--<tr>-->
+                                <!--<td>1</td>-->
+                                <!--<td>机器人</td>-->
+                                <!--<td>892</td>-->
+                                <!--<td>Sophia</td>-->
+                                <!--<td>4307</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>2</td>-->
+                                <!--<td>公民</td>-->
+                                <!--<td>537</td>-->
+                                <!--<td>Saudi</td>-->
+                                <!--<td>4099</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>3</td>-->
+                                <!--<td>身份</td>-->
+                                <!--<td>489</td>-->
+                                <!--<td>Arabia</td>-->
+                                <!--<td>3453</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>4</td>-->
+                                <!--<td>沙特</td>-->
+                                <!--<td>2000</td>-->
+                                <!--<td>citizenship</td>-->
+                                <!--<td>2348</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>5</td>-->
+                                <!--<td>索菲亚</td>-->
+                                <!--<td>370</td>-->
+                                <!--<td>named</td>-->
+                                <!--<td>928</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>6</td>-->
+                                <!--<td>人类</td>-->
+                                <!--<td>293</td>-->
+                                <!--<td>citizen</td>-->
+                                <!--<td>908</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>7</td>-->
+                                <!--<td>未来</td>-->
+                                <!--<td>210</td>-->
+                                <!--<td>bestows</td>-->
+                                <!--<td>719</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>8</td>-->
+                                <!--<td>投资</td>-->
+                                <!--<td>198</td>-->
+                                <!--<td>granted</td>-->
+                                <!--<td>504</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>9</td>-->
+                                <!--<td>首个</td>-->
+                                <!--<td>195</td>-->
+                                <!--<td>rights</td>-->
+                                <!--<td>459</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>10</td>-->
+                                <!--<td>授予</td>-->
+                                <!--<td>194</td>-->
+                                <!--<td>humanoid</td>-->
+                                <!--<td>436</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>11</td>-->
+                                <!--<td>大会</td>-->
+                                <!--<td>189</td>-->
+                                <!--<td>women</td>-->
+                                <!--<td>417</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>12</td>-->
+                                <!--<td>第一个</td>-->
+                                <!--<td>185</td>-->
+                                <!--<td>granted</td>-->
+                                <!--<td>403</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>13</td>-->
+                                <!--<td>计划</td>-->
+                                <!--<td>166</td>-->
+                                <!--<td>future</td>-->
+                                <!--<td>398</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>14</td>-->
+                                <!--<td>威胁论</td>-->
+                                <!--<td>152</td>-->
+                                <!--<td>investment</td>-->
+                                <!--<td>396</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>15</td>-->
+                                <!--<td>怼</td>-->
+                                <!--<td>151</td>-->
+                                <!--<td>initiative</td>-->
+                                <!--<td>365</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
 

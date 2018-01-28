@@ -88,12 +88,12 @@
 }
 /*左边的背景颜色*/
 .mediaVue ul li .bang .bangjindu[_v-507a7011] {
-    background-color: #1cb395;
+    background-color: #1dc1a1;
     width: 0;
     -webkit-transition: width 1s;
     transition: width 1s;
     height: 100%;
-    border: 1px solid #199b82;
+    border: 1px solid #1bae93;
     border-radius: 50px 0 0 50px
 }
 
