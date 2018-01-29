@@ -335,8 +335,11 @@
 
     // 使用刚指定的配置项和数据显示图表。
     myChart3.setOption(option3);
+    window.onresize = myChart3.resize;
     myChart1.setOption(option1);
+    window.onresize = myChart1.resize;
     myChart2.setOption(option2);
+    window.onresize = myChart2.resize;
 </script>
 <script type="text/javascript">
     var myChart4 = echarts.init(document.getElementById('main4'));

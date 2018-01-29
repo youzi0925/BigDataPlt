@@ -168,6 +168,7 @@
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart1.setOption(option1);
+    window.onresize = myChart1.resize;
 </script>
 <script type="text/javascript">
     var myChart2 = echarts.init(document.getElementById('main2'));
@@ -402,6 +403,7 @@
 
     // 使用刚指定的配置项和数据显示图表。
     myChart2.setOption(option2);
+    window.onresize = myChart2.resize;
 </script>
 </body>
 </html>
