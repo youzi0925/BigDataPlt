@@ -5,6 +5,7 @@
     <title>事件简介</title>
     #parse("sys/mulheader.html")
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
+    <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -26,7 +27,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block; height: 280px">
+                    <div class="ibox-content inspinia-timeline" style="display: block; height: 320px">
                         <div class="row"> <!-- /.row -->
                             <div class="col-lg-5 col-sm-5 col-md-5">
                                   <div class="info_img">
@@ -75,27 +76,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 400px">
-                        <div class="row">
-
-                            <div class="col-lg-12 col-sm-12 col-md-12">
-                                <div class="info_pic" id="info_weibo">
-                                    <img src="${rc.contextPath}/statics/pic/data_source.png" width="100%" height="auto">
-                                </div>
-                            </div>
-                            <!--<div class="col-lg-6 col-sm-6 col-md-6">-->
-                                <!--<div class="info_pic" id="info_tiwwter">-->
-                                    <!--<img src="${rc.contextPath}/statics/pic/twitter.jpg" width="100%" height="auto">-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 440px">
+                        <div id="data_source" style="height:420px;width: auto;"></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 col-sm-7 col-md-7">
                 <div class="ibox float-e-margins" id="info_category">
                     <div class="ibox-title">
-                        <h5>数据形式</h5>
+                        <h5>数据模态</h5>
                         <div class="ibox-tools">
                             <a class="info_text info_bottom" id="text" v-on:click="show_text">文本</a>
                             <a class="info_video" id="video" v-on:click="show_video">视频</a>
@@ -110,7 +99,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 380px">
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 440px">
                         <div class="info_show" id="info_text">
                             <div class="feed-element">
                                 <a href="profile.html" class="pull-left">
@@ -118,7 +107,7 @@
                                 </a>
                                 <div class="media-body ">
                                     <small class="pull-right" style="font-size: 12px;">302万</small>
-                                    <strong style="font-size: 16px;">梨视频</strong> <br>
+                                    <strong style="font-size: 16px;">梨视频（微博）</strong> <br>
                                     <p style="font-size: 14px;padding-top: 10px">【细思极恐！首个获得公民身份的机器人，思维敏捷且能对答如流”[并不简单]】
                                         10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
                                         被问AI威胁论时，她回怼：你看太多好莱坞电影了。
@@ -132,8 +121,8 @@
                                     <img alt="image" class="img-circle" src="${rc.contextPath}/statics/pic/info_Twitter.png">
                                 </a>
                                 <div class="media-body ">
-                                    <small class="pull-right" style="font-size: 12px;">2329万</small>
-                                    <strong style="font-size: 16px;">Frank Lennon‏</strong> <br>
+                                    <small class="pull-right" style="font-size: 12px;">5608</small>
+                                    <strong style="font-size: 16px;">Frank Lennon‏（Twitter）</strong> <br>
                                     <p style="font-size: 14px;padding-top:10px">Ah here! Don't be casting aspersions at IT's.
                                         Sophia the Robot is an IT. Isn't IT? IT got a dig out from Saudi Arabia.
                                         IT was probably even given a Bank Account by Saudi Arabia.
@@ -143,10 +132,22 @@
                                     <small class="text-muted"><a href="https://twitter.com/DisparatePost/status/955477456550531078" style="font-size: 12px;">2017-10-27 14:27</a></small>
                                 </div>
                             </div>
+                            <div class="feed-element">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="${rc.contextPath}/statics/pic/xinhua_photo.png">
+                                </a>
+                                <div class="media-body ">
+                                    <!--<small class="pull-right" style="font-size: 12px;">5608</small>-->
+                                    <strong style="font-size: 16px;">新华网‏（网媒）</strong> <br>
+                                    <p style="font-size: 14px;padding-top:10px">新华社利雅得１０月２７日电 日前在沙特阿拉伯首都利雅得举行的“未来投资倡议”大会上，
+                                        “女性”机器人索菲娅被授予沙特公民身份。她也因此成为史上首个获得公民身份的机器人。</p>
+                                    <small class="text-muted"><a href="http://www.xinhuanet.com/world/2017-10/27/c_1121867076.htm" style="font-size: 12px;">2017-10-27 15:07</a></small>
+                                </div>
+                            </div>
                         </div>
                         <div class="info_hidden" id="info_video">
-                            <!--<h1>这里是视频</h1>-->
-                            <video src="${rc.contextPath}/statics/pic/video_info.mp4" controls="controls" loop="loop" autoplay="autoplay" width="100%">
+                            <!--这里是视频-->
+                            <video src="${rc.contextPath}/statics/pic/video_info.mp4" controls="controls" loop="loop" width="100%">
                                 您的浏览器不支持 video 标签。
                             </video>
                         </div>
@@ -196,6 +197,125 @@
             }
         }
     });
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('data_source'));
+    var scale = 1;
+    var echartData = [{
+        value: 4310,
+        name: '微博'
+    }, {
+        value: 600,
+        name: '网媒'
+    }, {
+        value: 4000,
+        name: 'Twitter'
+    }, {
+        value: 1000,
+        name: '微信'
+    }];
+    var rich = {
+        yellow: {
+            color: "#ffc72b",
+            fontSize: 25 * scale,
+            padding: [5, 4],
+            align: 'center'
+        },
+        total: {
+            color: "#ffc72b",
+            fontSize: 35 * scale,
+            align: 'center'
+        },
+        white: {
+            color: "#666",
+            align: 'center',
+            fontSize: 14 * scale,
+            padding: [21, 0]
+        },
+        blue: {
+            color: '#49dff0',
+            fontSize: 15 * scale,
+            align: 'center'
+        },
+        hr: {
+            borderColor: '#0b5263',
+            width: '100%',
+            borderWidth: 1,
+            height: 0,
+        }
+    };
+    var option = {
+        backgroundColor: '#fff',
+        title: {
+            text:'总数',
+            left:'center',
+            top:'53%',
+            padding:[24,0],
+            textStyle:{
+                color:'#666',
+                fontSize:18*scale,
+                align:'center'
+            }
+        },
+        legend: {
+            selectedMode:true,
+            formatter: function(name) {
+                var total = 0;
+                var averagePercent;
+                echartData.forEach(function(value, index, array) {
+                    total += value.value;
+                });
+                return '{total|' + total + '}';
+            },
+            data: [echartData[0].name],
+            itemGap: 50,
+            left: 'center',
+            top: 'center',
+            icon: 'none',
+            align:'center',
+            textStyle: {
+                color: "000",
+                fontSize: 16 * scale,
+                rich: rich
+            }
+        },
+        series: [{
+            name: '数据来源',
+            type: 'pie',
+            radius: ['30%', '50%'],
+            hoverAnimation: true,
+            color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4'],
+            label: {
+                normal: {
+                    formatter: function(params, ticket, callback) {
+                        var total = 0;
+                        var percent = 0;
+                        echartData.forEach(function(value, index, array) {
+                            total += value.value;
+                        });
+                        percent = ((params.value / total) * 100).toFixed(1);
+                        return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                    },
+                    rich: rich
+                }
+            },
+            labelLine: {
+                normal: {
+                    length: 55 * scale,
+                    length2: 0,
+                    lineStyle: {
+                        color: '#000'
+                    }
+                }
+            },
+            data: echartData
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    window.onresize = myChart.resize;
+
 </script>
 </body>
 </html>

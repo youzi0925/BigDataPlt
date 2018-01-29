@@ -30,16 +30,23 @@
 
 .info_text{
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: black !important;
 }
 .info_video{
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: black !important;
-    margin-right:70%;
+    margin-right:44%;
+}
+
+/*opn_opn*/
+.opn_content{
+    color: #5e6e7e;
+    font-family: 宋体;
+    font-size: 15px;
 }
 
 
