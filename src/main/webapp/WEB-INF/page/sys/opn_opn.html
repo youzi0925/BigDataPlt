@@ -28,7 +28,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ibox-content inspinia-timeline" style="display: block;">
+                        <div class="ibox-content inspinia-timeline" style="display: block;height: 530px;">
                             <!--<h1>这里是内容</h1>-->
                             <div class="ibox-content">
                                 <p class="opn_content">观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了。</p>
@@ -95,7 +95,7 @@
                     <div class="ibox-content inspinia-timeline" style="display: block;">
                         <!--<h1>这里是内容</h1>-->
                         <div class="ibox-content">
-                            <p class="opn_content">观点1.50%Saudi Arabia bestows citizenship on a robot named Sophia</p>
+                            <p class="opn_content">观点1.Saudi Arabia bestows citizenship on a robot named Sophia</p>
                             <!--<h2>50%</h2>-->
                             <div class="progress progress-mini">
                                 <div style="width: 50%;" class="progress-bar"></div>
@@ -162,7 +162,8 @@
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 450px;">
                         <!--<h1>这里是内容</h1>-->
                         <div class="col-lg-7 col-sm-7 col-md-7">
-                            <img src="${rc.contextPath}/statics/pic/sentiment.png" width="100%" height="auto">
+                            <div id="sentiment" style="width: 100%;height:440px;"></div>
+                            <!--<img src="${rc.contextPath}/statics/pic/sentiment.png" width="100%" height="auto">-->
                         </div>
                         <div class="col-lg-5 col-sm-5 col-md-5">
                             <table class="table table-striped" id="keywords_table">
@@ -180,27 +181,27 @@
                                     <td>微博</td>
                                     <td>1%</td>
                                     <td>26%</td>
-                                    <td>73%</td>
+                                    <td style="color: #ff0402">73%</td>
                                     <!--<td>4307</td>-->
                                 </tr>
                                 <tr>
                                     <td>微信</td>
                                     <td>1%</td>
-                                    <td>59%</td>
+                                    <td style="color: #ff0402">59%</td>
                                     <td>40%</td>
                                     <!--<td>4099</td>-->
                                 </tr>
                                 <tr>
                                     <td>网媒</td>
                                     <td>1%</td>
-                                    <td>78%</td>
+                                    <td style="color: #ff0402">78%</td>
                                     <td>21%</td>
                                     <!--<td>3453</td>-->
                                 </tr>
                                 <tr>
                                     <td>Twitter</td>
                                     <td>2%</td>
-                                    <td>77%</td>
+                                    <td style="color: #ff0402">77%</td>
                                     <td>21%</td>
                                     <!--<td>2348</td>-->
                                 </tr>
@@ -576,5 +577,78 @@
         });
     });
 </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('sentiment'));
+
+        var option = {
+            title: {
+                text: '网民情感倾向'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            toolbox:{
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    saveAsImage: {show: true}
+                }
+            },
+            legend: {
+                data: ['微博', '微信','网媒','Twitter']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                axisLabel:{
+                    formatter: function(val){
+                        return val + '%';
+                    }
+                },
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: ['积极','中立','消极']
+            },
+            series: [
+                {
+                    name: '微博',
+                    type: 'bar',
+                    data: [1, 26, 73]
+                },
+                {
+                    name: '微信',
+                    type: 'bar',
+                    data: [1, 59, 40]
+                },
+                {
+                    name: '网媒',
+                    type: 'bar',
+                    data: [1, 78, 21]
+                },
+                {
+                    name: 'Twitter',
+                    type: 'bar',
+                    data: [2, 77, 21]
+                }
+            ],
+            animation: true,
+            animationDuration: 4000
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        window.onresize = myChart.resize;
+    </script>
+</div>
 </body>
 </html>
