@@ -11,7 +11,7 @@
     <div class="wrapper wrapper-content">
         <div class="row"> <!-- /.row -->
             <!--传播趋势图-->
-            <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class="col-lg-8 col-sm-8 col-md-8">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>传播趋势</h5>
@@ -30,6 +30,55 @@
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;">
                         <div id="main1" style="width: 100%;height:350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>传播趋势</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 386px">
+                        <div id="opint_1">
+                            <h1 style="padding-top:10px;padding-bottom: 25px">微博首发辟谣</h1>
+                            <div class="feed-element">
+
+                                <div class="media-body ">
+
+                                    <strong style="font-size: 16px;">江苏网警</strong> <br>
+                                    <p style="font-size: 14px;padding-top: 20px">#微博辟谣# “最新国际通用报警求助手势”是真的吗？
+                                        小苏查了下，各国报警电话除了110、911，还有其他号码，这个手势并不能广泛代表；
+                                        手势的唯一出处是厄齐尔，拇指与无名指靠拢向下，是他的经典的M庆祝方式；
+                                        最重要的是，小苏身边的警察没人认识这个手势[doge]不为大众所知的报警方式只会害人[拜拜] ​​​​ </p>
+                                    <br>
+                                    <small class="text-muted"><a href="http://weibo.com/6004281123/FsiTTehh6" style="font-size: 12px;">2016-4-11 09:59</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="opint_2" class="info_hidden">
+                            <h1 style="padding-top:10px;padding-bottom: 25px">微信首发谣言</h1>
+                            <div class="feed-element">
+
+                                <div class="media-body ">
+
+                                    <strong style="font-size: 16px;">品茶悟道福地春</strong> <br>
+                                    <p style="font-size: 14px;padding-top: 20px">最新国际通用报警求助手势!不要赞,转起来!</p>
+                                    <br>
+                                    <small class="text-muted"><a href="http://weibo.com/1642088277/FsjbNpPeY" style="font-size: 12px;">2016-4-11 06:00</a></small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,6 +107,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!--&lt;!&ndash;test部分&ndash;&gt;-->
@@ -337,16 +387,19 @@
 
     // 使用刚指定的配置项和数据显示图表。
     myChart1.setOption(option1);
+    window.onresize = myChart1.resize;
     myChart1.on('click', function (params) {
         if (params.componentType === 'markPoint') {
             // 点击到了 markPoint 上
             if (params.value === 1) {
 
-                window.open("http://www.baidu.com")
+                $('#opint_1').attr("class", "opn_show");
+                $('#opint_2').attr("class", "info_hidden");
                 // 点击到了 index 为 5 的 series 的 markPoint 上。
             }
             if (params.value === 2) {
-                window.open("http://www.google.com")
+                $('#opint_1').attr("class", "info_hidden");
+                $('#opint_2').attr("class", "opn_show");
                 // 点击到了 index 为 5 的 series 的 markPoint 上。
             }
         }
@@ -673,6 +726,7 @@
     }
     // 使用刚指定的配置项和数据显示图表。
     myChart2.setOption(option2);
+    window.onresize = myChart2.resize;
 </script>
 </body>
 </html>
