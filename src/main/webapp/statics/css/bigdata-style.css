@@ -184,3 +184,23 @@
     word-break: break-all;
     z-index: 5
 }
+
+/*opn_firs样式t*/
+.first-opn{
+    padding-top:10px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.first-count{
+    font-size: 14px;
+}
+.first-user{
+    font-size: 17px;
+}
+.first-content{
+    font-size: 15px;
+    padding-top: 10px
+}
+.first-timestamp{
+    font-size: 14px;
+}
