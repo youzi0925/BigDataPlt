@@ -28,7 +28,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ibox-content inspinia-timeline" style="display: block;height: 530px;">
+                        <div class="ibox-content inspinia-timeline" id="opn_chinese" style="display: block;">
                             <!--<h1>这里是内容</h1>-->
                             <div class="ibox-content">
                                 <p class="opn_content">观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了。</p>
@@ -92,7 +92,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                    <div class="ibox-content inspinia-timeline" id="opn_english" style="display: block;">
                         <!--<h1>这里是内容</h1>-->
                         <div class="ibox-content">
                             <p class="opn_content">观点1.Saudi Arabia bestows citizenship on a robot named Sophia</p>
@@ -648,6 +648,16 @@
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         window.onresize = myChart.resize;
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var h=$("#opn_english").height();
+            $("#opn_chinese").height(h);
+        });
+        $(window).resize(function(){
+            var h=$("#opn_english").height();
+            $("#opn_chinese").height(h);
+        });
     </script>
 </div>
 </body>

@@ -28,7 +28,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                    <div class="ibox-content inspinia-timeline" style="display: block;" id="recon_info">
                         <!--<h1>这里是内容</h1>-->
                         <div class="row"> <!-- /.row -->
                             <div class="col-lg-5 col-sm-5 col-md-5">
@@ -77,8 +77,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;">
-                        <p style="font-size: 17px;font-family: 宋体;padding-top: 15px;color:#5e6e7e;text-indent: 2em;height: 253px;">
+                    <div class="ibox-content inspinia-timeline" style="display: block;" id="recon">
+                        <p style="font-size: 17px;font-family: 宋体;padding-top: 15px;color:#5e6e7e;text-indent: 2em;">
                             随着配备高品质相机的智能手机普及，世界各地发生的事件均可以通过视频捕捉，并通过社交网络快速分享。
                             当一个事件发生时，不同的视频从不同的角度拍摄到同一事件的不同位置不同时间下的发展情况，
                             事件重构是指对这些视频进行处理以实现时间同步，使得事件的经过全面且真实的展示出来，
@@ -112,8 +112,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 col-sm-7 col-md-7">
-                <div class="ibox float-e-margins" id="info_ico">
+            <div class="col-lg-7 col-sm-7 col-md-7 col-xs-7">
+                <div class="ibox float-e-margins" >
                     <div class="ibox-title">
                         <h5>数据模态</h5>
                         <div class="ibox-tools">
@@ -383,6 +383,16 @@
     myChart.setOption(option);
     window.onresize = myChart.resize;
 
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h=$("#recon_info").height();
+        $("#recon").height(h);
+    });
+    $(window).resize(function(){
+        var h=$("#recon_info").height();
+        $("#recon").height(h);
+    });
 </script>
 </body>
 </html>
