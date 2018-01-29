@@ -49,12 +49,6 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
                                 <i class="fa fa-wrench"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_basic.html#">Config option 1</a>
-                                </li>
-                                <li><a href="table_basic.html#">Config option 2</a>
-                                </li>
-                            </ul>
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
@@ -218,231 +212,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            var chart = echarts.init(document.getElementById('wordCloud'));
-
-            var keywords = {
-                "机器人":2860,
-                "公民":2202,
-                "身份":1661,
-                "授予":952,
-                "沙特":916,
-                "人类":882,
-                "索菲亚":611,
-                "首个":568,
-                "第一个":507,
-                "世界":506,
-                "首位":486,
-                "史上":387,
-                "国籍":284,
-                "未来":263,
-                "拥有":252,
-                "开口":242,
-                "可怕":213,
-                "惊呆":203,
-                "毁灭":202,
-                "投资":198,
-                "索菲娅":195,
-                "对答如流":190,
-                "大会":189,
-                "威胁论":185,
-                "怼":184,
-                "首次":182,
-                "沙特阿拉伯":170,
-                "计划":166,
-                "美女":158,
-                "全场":155,
-                "问":149,
-                "女性":146,
-                "时间":144,
-                "电影":142,
-                "好莱坞":137,
-                "回":135,
-                "思维":134,
-                "敏捷":132,
-                "看太多":128,
-                "全球":124,
-                "记住":120,
-                "名字":118,
-                "历史":117,
-                "人工智能":116,
-                "先例":114,
-                "我会":103,
-                "积极向上":98,
-                "反问":97,
-                "诞生":95,
-                "简单":94,
-                "全文":93,
-                "犯人":90,
-                "不犯":90,
-                "自我意识":88,
-                "恐":87,
-                "细思极":87,
-                "视频":74,
-                "国家":62,
-                "全世界":58,
-                "面对":57,
-                "真的":55,
-                "马斯克":53,
-                "采访":53,
-                "刚刚":52,
-                "星球":52,
-                "扬言":49,
-                "科技":48,
-                "首开":47,
-                "吃惊":45,
-                "揭秘":44,
-                "网友":41,
-                "意味着":40,
-                "地球":39,
-                "被授":38,
-                "生活":37,
-                "震惊":37,
-                "回答":37,
-                "害怕":37,
-                "正式":36,
-                "权利":35,
-                "回应":35,
-                "类人":32,
-                "倡议":32,
-                "转发":31,
-                "利雅得":31,
-                "网红":30,
-                "微博":30,
-                "合法":29,
-                "表情":29,
-                "说话":27,
-                "robot":4413,
-                "sophia":4307,
-                "saudi":4099,
-                "arabia":3453,
-                "citizenship":2348,
-                "named":928,
-                "citizen":908,
-                "bestows":719,
-                "granted":504,
-                "rights":459,
-                "humanoid":436,
-                "women":417,
-                "grants":403,
-                "future":398,
-                "investment":396,
-                "initiative":365,
-                "speaks":362,
-                "meet":335,
-                "la":280,
-                "de":257,
-                "people":215,
-                "con":207,
-                "en":202,
-                "video":198,
-                "el":164,
-                "country":162,
-                "outraged":160,
-                "reason":122,
-                "primer":120,
-                "grant":105,
-                "elon":93,
-                "musk":93,
-                "woman":91,
-                "official":90,
-                "female":90,
-                "ciudadano":88,
-                "lifelike":86,
-                "ai":86,
-                "ms":85,
-                "derechos":83,
-                "pasa":81,
-                "arab":81,
-                "convertirse":81,
-                "los":81,
-                "humanos":80,
-                "declared":80,
-                "mujeres":79,
-                "bromear":78,
-                "acabar":78,
-                "arabian":76,
-                "nonhuman":74,
-                "human":73,
-                "al":72,
-                "fii":69,
-                "otorga":69,
-                "receive":66,
-                "trollea":63,
-                "news":54,
-                "tiene":54,
-                "mxico":54,
-                "las":53,
-                "dar":53,
-                "reloaded":52,
-                "real":49,
-                "st":48,
-                "interview":45,
-                "denies":45,
-                "ponencia":42,
-                "obtuvo":40,
-                "conoce":40,
-                "va":37,
-                "conference":35,
-                "selfaware":35,
-                "watch":34,
-                "pertama":32,
-                "humans":32,
-                "nation":31
-            };
-
-            var data = [];
-            for (var name in keywords) {
-                data.push({
-                    name: name,
-                    value: Math.sqrt(keywords[name])
-                })
-            }
-
-            var maskImage = new Image();
-
-            var option = {
-                series: [ {
-                    type: 'wordCloud',
-                    sizeRange: [15, 55],
-                    rotationRange: [-90, 90],
-                    rotationStep: 45,
-                    gridSize: 5,
-                    shape: 'pentagon',
-                    maskImage: maskImage,
-                    drawOutOfBound: false,
-                    textStyle: {
-                        normal: {
-                            color: function () {
-                                return 'rgb(' + [
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160),
-                                    Math.round(Math.random() * 160)
-                                ].join(',') + ')';
-                            }
-                        },
-                        emphasis: {
-                            color: 'red'
-                        }
-                    },
-                    data: data.sort(function (a, b) {
-                        return b.value  - a.value;
-                    })
-                } ]
-            };
-
-            maskImage.onload = function () {
-                option.series[0].maskImage
-                chart.setOption(option);
-            };
-
-            maskImage.src = '${rc.contextPath}/statics/pic/tuoyuan.png';
-            //            maskImage.src = './wordCloud_circle.png';
-
-            chart.setOption(option);
-            window.onresize = chart.resize;
-
-        </script>
         <!--<div class="row"> &lt;!&ndash; /.row &ndash;&gt;-->
             <!--<div class="col-lg-5 col-sm-5 col-md-5">-->
                 <!--<div class="ibox float-e-margins">-->
@@ -591,7 +360,252 @@
         <!--</div>-->
     </div>
 </div>
+<script>
+    var change_category = new Vue({
+        el: '#info_category',
+        methods: {
+            show_text: function () {
+                $('#text').addClass("info_bottom");
+                $('#video').removeClass("info_bottom");
 
+                $('#info_video').attr("class", "info_hidden");
+                $('#info_text').attr("class", "info_show");
+            },
+            show_video: function () {
+                $('#video').addClass("info_bottom");
+                $('#text').removeClass("info_bottom");
+
+                $('#info_text').attr("class", "info_hidden");
+                $('#info_video').attr("class", "info_show");
+            }
+        }
+    });
+</script>
+<script>
+    var chart = echarts.init(document.getElementById('wordCloud'));
+
+    var keywords = {
+        "机器人":2860,
+        "公民":2202,
+        "身份":1661,
+        "授予":952,
+        "沙特":916,
+        "人类":882,
+        "索菲亚":611,
+        "首个":568,
+        "第一个":507,
+        "世界":506,
+        "首位":486,
+        "史上":387,
+        "国籍":284,
+        "未来":263,
+        "拥有":252,
+        "开口":242,
+        "可怕":213,
+        "惊呆":203,
+        "毁灭":202,
+        "投资":198,
+        "索菲娅":195,
+        "对答如流":190,
+        "大会":189,
+        "威胁论":185,
+        "怼":184,
+        "首次":182,
+        "沙特阿拉伯":170,
+        "计划":166,
+        "美女":158,
+        "全场":155,
+        "问":149,
+        "女性":146,
+        "时间":144,
+        "电影":142,
+        "好莱坞":137,
+        "回":135,
+        "思维":134,
+        "敏捷":132,
+        "看太多":128,
+        "全球":124,
+        "记住":120,
+        "名字":118,
+        "历史":117,
+        "人工智能":116,
+        "先例":114,
+        "我会":103,
+        "积极向上":98,
+        "反问":97,
+        "诞生":95,
+        "简单":94,
+        "全文":93,
+        "犯人":90,
+        "不犯":90,
+        "自我意识":88,
+        "恐":87,
+        "细思极":87,
+        "视频":74,
+        "国家":62,
+        "全世界":58,
+        "面对":57,
+        "真的":55,
+        "马斯克":53,
+        "采访":53,
+        "刚刚":52,
+        "星球":52,
+        "扬言":49,
+        "科技":48,
+        "首开":47,
+        "吃惊":45,
+        "揭秘":44,
+        "网友":41,
+        "意味着":40,
+        "地球":39,
+        "被授":38,
+        "生活":37,
+        "震惊":37,
+        "回答":37,
+        "害怕":37,
+        "正式":36,
+        "权利":35,
+        "回应":35,
+        "类人":32,
+        "倡议":32,
+        "转发":31,
+        "利雅得":31,
+        "网红":30,
+        "微博":30,
+        "合法":29,
+        "表情":29,
+        "说话":27,
+        "robot":4413,
+        "sophia":4307,
+        "saudi":4099,
+        "arabia":3453,
+        "citizenship":2348,
+        "named":928,
+        "citizen":908,
+        "bestows":719,
+        "granted":504,
+        "rights":459,
+        "humanoid":436,
+        "women":417,
+        "grants":403,
+        "future":398,
+        "investment":396,
+        "initiative":365,
+        "speaks":362,
+        "meet":335,
+        "la":280,
+        "de":257,
+        "people":215,
+        "con":207,
+        "en":202,
+        "video":198,
+        "el":164,
+        "country":162,
+        "outraged":160,
+        "reason":122,
+        "primer":120,
+        "grant":105,
+        "elon":93,
+        "musk":93,
+        "woman":91,
+        "official":90,
+        "female":90,
+        "ciudadano":88,
+        "lifelike":86,
+        "ai":86,
+        "ms":85,
+        "derechos":83,
+        "pasa":81,
+        "arab":81,
+        "convertirse":81,
+        "los":81,
+        "humanos":80,
+        "declared":80,
+        "mujeres":79,
+        "bromear":78,
+        "acabar":78,
+        "arabian":76,
+        "nonhuman":74,
+        "human":73,
+        "al":72,
+        "fii":69,
+        "otorga":69,
+        "receive":66,
+        "trollea":63,
+        "news":54,
+        "tiene":54,
+        "mxico":54,
+        "las":53,
+        "dar":53,
+        "reloaded":52,
+        "real":49,
+        "st":48,
+        "interview":45,
+        "denies":45,
+        "ponencia":42,
+        "obtuvo":40,
+        "conoce":40,
+        "va":37,
+        "conference":35,
+        "selfaware":35,
+        "watch":34,
+        "pertama":32,
+        "humans":32,
+        "nation":31
+    };
+
+    var data = [];
+    for (var name in keywords) {
+        data.push({
+            name: name,
+            value: Math.sqrt(keywords[name])
+        })
+    }
+
+    var maskImage = new Image();
+
+    var option = {
+        series: [ {
+            type: 'wordCloud',
+            sizeRange: [15, 55],
+            rotationRange: [-90, 90],
+            rotationStep: 45,
+            gridSize: 5,
+            shape: 'pentagon',
+            maskImage: maskImage,
+            drawOutOfBound: false,
+            textStyle: {
+                normal: {
+                    color: function () {
+                        return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    color: 'red'
+                }
+            },
+            data: data.sort(function (a, b) {
+                return b.value  - a.value;
+            })
+        } ]
+    };
+
+    maskImage.onload = function () {
+        option.series[0].maskImage
+        chart.setOption(option);
+    };
+
+    maskImage.src = '${rc.contextPath}/statics/pic/tuoyuan.png';
+    //            maskImage.src = './wordCloud_circle.png';
+
+    chart.setOption(option);
+    window.onresize = chart.resize;
+
+</script>
 <script>
     $(document).ready(function(){
         $('#keywords_table').DataTable({
