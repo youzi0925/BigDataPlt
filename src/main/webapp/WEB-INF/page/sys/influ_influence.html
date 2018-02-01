@@ -298,7 +298,7 @@
             x: 'left',
             data:['微博管理员','公安部打黑除四害','新浪四川','济南公安','新浪天津','政府微博助理','娱八婆(谣言)','菏泽中院']
        ,textStyle: {
-                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+                fontSize: 16 // 用 legend.textStyle.fontSize 更改示例大小
             } },
         series: [
             {
@@ -377,19 +377,19 @@
                 return [pt[0], '10%'];
             }
         },
+        legend: {
+            //orient: 'vertical',
+            x: 'center',
+            data:['公安部打四黑除四害','菏泽中院','济南公安','微博管理员','新浪四川','新浪天津','政府微博助理','娱八婆(谣言)']
+            ,textStyle: {
+                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+            } },
         title: {
             left: 'center',
       //      text: '微博高影响力用户引发传播图',
         },
-        toolbox: {
-            feature: {
-                dataZoom: {
-                    yAxisIndex: 'none'
-                },
-                restore: {},
-                saveAsImage: {}
-            }
-        },
+       
+
         xAxis: {
             type: 'category',
             boundaryGap: false,
@@ -562,7 +562,7 @@
                 data: data6
             },
             {
-                name:'娱八婆',
+                name:'娱八婆(谣言)',
                 type:'line',
                 smooth:true,
                 symbol: 'none',
