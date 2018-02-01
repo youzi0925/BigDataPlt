@@ -43,7 +43,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>微博高影响力用户影响指数图</h5>
-                        <span class="label label-primary">滑动鼠标滚轮可缩放走势图</span>
+
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -133,7 +133,10 @@
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['钱江晚报','人民日报','长沙警事','警探','辽宁晚报','佛山日报','佛犁我的家']
+            data:['钱江晚报','人民日报','长沙警事','警探','辽宁晚报','佛山日报','佛犁我的家'],
+            textStyle: {
+                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+            }
         },
         series: [
             {
@@ -214,7 +217,10 @@
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['搜狐','网易新闻','光明网','新华网','新民网']
+            data:['搜狐','网易新闻','光明网','新华网','新民网'],
+            textStyle: {
+                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+            }
         },
         series: [
             {
@@ -291,7 +297,9 @@
             orient: 'vertical',
             x: 'left',
             data:['微博管理员','公安部打黑除四害','新浪四川','济南公安','新浪天津','政府微博助理','娱八婆(谣言)','菏泽中院']
-        },
+       ,textStyle: {
+                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+            } },
         series: [
             {
                 name:'影响力因子',
