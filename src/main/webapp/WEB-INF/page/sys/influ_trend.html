@@ -5,13 +5,33 @@
     <title>传播趋势</title>
     #parse("sys/mulheader.html")    <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
     <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
+    <style type="text/css">
+        .first-opn{
+            padding-top:10px;
+            padding-bottom: 20px;
+            font-size: 20px;
+        }
+        .first-count{
+            font-size: 18px;
+        }
+        .first-user{
+            font-size: 20px;
+        }
+        .first-content{
+            font-size: 17px;
+            padding-top: 10px
+        }
+        .first-timestamp{
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
     <div class="wrapper wrapper-content">
         <div class="row"> <!-- /.row -->
             <!--传播趋势图-->
-            <div class="col-lg-9 col-sm-9 col-md-9">
+            <div class="col-lg-8 col-sm-8 col-md-8">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>传播趋势</h5>
@@ -33,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-3 col-md-3">
+            <div class="col-lg-4 col-sm-4 col-md-4">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>发布内容</h5>
@@ -52,9 +72,10 @@
                     <div class="ibox-content inspinia-timeline" style="display: block;">
 
 
-                        <div id="opint_1">
+                        <div id="opint_1" style="height: 400px">
                             <p class="first-opn">微博首发辟谣</p >
                             <div class="feed-element">
+                            <a class="pull-left">
                                 <img src="${rc.contextPath}/statics/pic/weibo_logo.png" style="width: 30px;height: auto;margin-right: 10px;display: inline-block">
                             </a>
                             <div class="media-body ">
@@ -70,10 +91,11 @@
                         </div>
                     </div>
 
-                        <div id="opint_2"  class="info_hidden";>
+                        <div id="opint_2" style="height: 400px" class="info_hidden";>
                             <p class="first-opn">微信首发谣言</p >
                             <div class="feed-element">
-                                <img src="${rc.contextPath}/statics/pic/weixin_logo.png" style="width: 30px;height: auto;margin-right: 10px;display: inline-block">
+                                <a class="pull-left">
+                                    <img src="${rc.contextPath}/statics/pic/weixin_logo.png" style="width: 30px;height: auto;margin-right: 10px;display: inline-block">
                                 </a>
                                 <div class="media-body ">
 
