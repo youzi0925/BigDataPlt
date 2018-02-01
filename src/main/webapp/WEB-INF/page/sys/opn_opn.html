@@ -439,7 +439,7 @@
         });
 
         $(".content1 ul").find('li').eq(3).mouseover(function(){
-            var high = 62+71*3;
+            var high = 62+71*3-10;
             $('.content1 .tipUl3').find('div').css("top",""+high+"px");
             $('.content1 .tipUl3').css("display","block");
         });
@@ -457,7 +457,7 @@
         });
 
         $(".content1 ul").find('li').eq(5).mouseover(function(){
-            var high = 62+71*5;
+            var high = 62+71*5-200;
             $('.content1 .tipUl5').find('div').css("top",""+high+"px");
             $('.content1 .tipUl5').css("display","block");
         });
@@ -465,23 +465,6 @@
             $('.content1 .tipUl5').css("display","none");
         });
 
-        $(".content1 ul").find('li').eq(6).mouseover(function(){
-            var high = 62+71*6-100;
-            $('.content1 .tipUl6').find('div').css("top",""+high+"px");
-            $('.content1 .tipUl6').css("display","block");
-        });
-        $(".content1 ul").find('li').eq(6).mouseout(function(){
-            $('.content1 .tipUl6').css("display","none");
-        });
-
-        $(".content1 ul").find('li').eq(7).mouseover(function(){
-            var high = 62+71*7-150;
-            $('.content1 .tipUl7').find('div').css("top",""+high+"px");
-            $('.content1 .tipUl7').css("display","block");
-        });
-        $(".content1 ul").find('li').eq(7).mouseout(function(){
-            $('.content1 .tipUl7').css("display","none");
-        });
         /*********第二个内容***************/
         $(".content2 ul").find('li').eq(0).mouseover(function(){
             var high = 62;
@@ -530,7 +513,7 @@
         });
 
         $(".content2 ul").find('li').eq(5).mouseover(function(){
-            var high = 62+71*5;
+            var high = 62+71*5-100;
             $('.content2 .tipUl5').find('div').css("top",""+high+"px");
             $('.content2 .tipUl5').css("display","block");
         });
@@ -538,14 +521,6 @@
             $('.content2 .tipUl5').css("display","none");
         });
 
-        $(".content2 ul").find('li').eq(6).mouseover(function(){
-            var high = 62+71*6-100;
-            $('.content2 .tipUl6').find('div').css("top",""+high+"px");
-            $('.content2 .tipUl6').css("display","block");
-        });
-        $(".content2 ul").find('li').eq(6).mouseout(function(){
-            $('.content2 .tipUl6').css("display","none");
-        });
     });
 </script>
     <script type="text/javascript">

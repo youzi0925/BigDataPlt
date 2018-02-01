@@ -213,6 +213,9 @@
                         </div>
                     </div>
                     <div class="ibox-content inspinia-timeline" style="display: block;height: 440px">
+                        <img src="${rc.contextPath}/statics/pic/youtube_logo.png" width="30%" height="auto" style="float: left;margin-right: 3%;">
+                        <img src="${rc.contextPath}/statics/pic/dailymotion.jpg" width="30%" height="auto" style="float: left;margin-right: 3%;">
+                        <img src="${rc.contextPath}/statics/pic/flickr.jpg" width="30%" height="auto" style="float: left;margin-right: 3%;">
                         <div id="data_source" style="height:420px;width: auto;"></div>
                     </div>
                 </div>
@@ -276,13 +279,13 @@
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('data_source'));
     var scale = 1;
-    var echartData = [{
-        value: 2000,
-        name: 'Youtube'
-    }, {
+    var echartData = [ {
         value: 600,
         name: 'Flickr'
     }, {
+        value: 2000,
+        name: 'Youtube'
+    },{
         value: 54,
         name: 'dailymotion'
     }];
@@ -301,7 +304,7 @@
         white: {
             color: "#666",
             align: 'center',
-            fontSize: 18 * scale,
+            fontSize: 20 * scale,
             padding: [21, 0]
         },
         blue: {
@@ -354,7 +357,7 @@
         series: [{
             name: '数据来源',
             type: 'pie',
-            radius: ['30%', '50%'],
+            radius: ['25%', '55%'],
             hoverAnimation: true,
             color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4'],
             label: {
@@ -366,14 +369,14 @@
                             total += value.value;
                         });
                         percent = ((params.value / total) * 100).toFixed(1);
-                        return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                        return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}{blue|' + percent + '%}';
                     },
                     rich: rich
                 }
             },
             labelLine: {
                 normal: {
-                    length: 55 * scale,
+                    length: 35 * scale,
                     length2: 0,
                     lineStyle: {
                         color: '#000'
