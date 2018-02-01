@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>关键词云图</title>
     #parse("sys/mulheader.html")
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
     <script src='${rc.contextPath}/statics/libs/echarts.simple.js'></script>
     <script src="${rc.contextPath}/statics/libs/echarts-wordcloud.js"></script>
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/dataTables/datatables.min.css">
     <script src="${rc.contextPath}/statics/libs/datatables.min.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>-->
-
-    <!--<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>-->
+    <style type="text/css">
+        #keywords_table tr td,th{
+            font-size: 19px;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -33,7 +36,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 500px;">
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 530px;">
                         <div id='wordCloud' style="width: 150%; height: 120%;margin-top: -7%;margin-left: -25%;"></div>
                     </div>
                 </div>
@@ -54,7 +57,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content" style="height: 500px;">
+                    <div class="ibox-content" style="height: 530px;">
                         <table class="table table-striped" id="keywords_table">
                             <thead>
                             <tr>

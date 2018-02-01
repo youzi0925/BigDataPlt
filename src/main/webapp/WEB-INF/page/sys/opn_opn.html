@@ -6,6 +6,27 @@
     #parse("sys/mulheader.html")
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
     <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
+    <style type="text/css">
+        table tr td,th{
+            font-size: 16px;
+        }
+        .sentiment_title p{
+            font-size: 16px;
+            display: inline-block;
+        }
+        #weibo_sentiment{
+            margin-left: 5%;
+        }
+        #weixin_sentiment{
+            margin-left: 19%;
+        }
+        #wangmei_sentiment{
+            margin-left: 19%;
+        }
+        #twitter_sentiment{
+            margin-left: 16%;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -166,7 +187,15 @@
                             <!--<img src="${rc.contextPath}/statics/pic/sentiment.png" width="100%" height="auto">-->
                         </div>
                         <div class="col-lg-5 col-sm-5 col-md-5">
-                            <table class="table table-striped" id="keywords_table" style="margin-top: 50px;">
+                            <div id="four_sentiment" style="width: 120%;margin-left:-14%;height:200px;"></div>
+                            <div class="sentiment_title" style="margin-top:-40px;">
+                                <p id="weibo_sentiment">微博</p>
+                                <p id="weixin_sentiment">微信</p>
+                                <p id="wangmei_sentiment">网媒</p>
+                                <p id="twitter_sentiment">Twitter</p>
+                            </div>
+
+                            <table class="table table-striped" id="keywords_table" style="margin-top: 30px;">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -211,329 +240,342 @@
                     </div>
                 </div>
             </div>
-        <!--<div class="row">-->
-            <!--<div class="col-lg-12 col-sm-12 col-md-12">-->
-                <!--<div class="ibox float-e-margins">-->
-                    <!--<div class="ibox-title">-->
-                        <!--<h5><img src="${rc.contextPath}/statics/pic/weibo_logo.png" width="12%"></h5>-->
-                        <!--<span class="label label-primary"></span>-->
-                        <!--<div class="ibox-tools">-->
-                            <!--<a class="collapse-link">-->
-                                <!--<i class="fa fa-chevron-up"></i>-->
-                            <!--</a>-->
-                            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
-                                <!--<i class="fa fa-wrench"></i>-->
-                            <!--</a>-->
-                            <!--<a class="close-link">-->
-                                <!--<i class="fa fa-times"></i>-->
-                            <!--</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="ibox-content inspinia-timeline" style="display: block;">-->
-                        <!--<div class="row">-->
-                            <!--<div class="col-lg-6 col-sm-6 col-md-6">-->
-                                <!--<div class="content1" _v-2ad827a2="">-->
-                                    <!--<div class="mediaVue" _v-507a7011="" _v-2ad827a2="">-->
-                                        <!--<ul _v-507a7011="">-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 100%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="SR定义3D新未来 康得新3D+战略出击CES2018">-->
-                                                            <!--<span _v-507a7011="">1</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">SR定义3D新未来 康得新3D+战略出击CES2018</span></div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">28</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl0"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体：腾讯游戏、新浪网、网易、太平洋电脑网、凤凰数码、中华网、中国网科学频道、未来网、CSDN、比特网、国际在线、中国日报、和讯科技、科技世界网、新科技、法制晚报、天极网、驱动中国、IT专家网、每日科技网、第一理财网、91资讯站、中国IT研..、中国科学网、IB资讯、中国产业经济信息网、中国经济报、中国新闻网安徽站等-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 89.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品"><span _v-507a7011="">2</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">25</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl1"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示1-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 78.5714%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="CES2018十大黑科技前瞻 LUCI先声夺人"><span-->
-                                                                <!--_v-507a7011="">3</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES2018十大黑科技前瞻 LUCI先声夺人</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">22</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl2"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示2-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 67.8571%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种"><span-->
-                                                                <!--_v-507a7011="">4</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">19</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl3"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示3-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="CES 2018开幕,海信“三剑客”披挂上阵"><span-->
-                                                                <!--_v-507a7011="">5</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES 2018开幕,海信“三剑客”披挂上阵</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl4"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示4-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!"><span-->
-                                                                <!--_v-507a7011="">6</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl5"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示5-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="从互联时代进入数据时代——从2018年CES看未来技术发展">-->
-                                                            <!--<span _v-507a7011="">7</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">从互联时代进入数据时代——从2018年CES看未来技术发展</span></div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl6"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示6-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                        <!--</ul>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-lg-6 col-sm-6 col-md-6">-->
-                                <!--<div class="content2" _v-2ad827a2="">-->
-                                    <!--<div class="mediaVue" _v-507a7011="" _v-2ad827a2="">-->
-                                        <!--<ul _v-507a7011="">-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 100%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="SR定义3D新未来 康得新3D+战略出击CES2018">-->
-                                                            <!--<span _v-507a7011="">1</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">SR定义3D新未来 康得新3D+战略出击CES2018</span></div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">28</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl0"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体：腾讯游戏、新浪网、网易、太平洋电脑网、凤凰数码、中华网、中国网科学频道、未来网、CSDN、比特网、国际在线、中国日报、和讯科技、科技世界网、新科技、法制晚报、天极网、驱动中国、IT专家网、每日科技网、第一理财网、91资讯站、中国IT研..、中国科学网、IB资讯、中国产业经济信息网、中国经济报、中国新闻网安徽站等-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 89.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品"><span _v-507a7011="">2</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">25</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl1"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示1-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 78.5714%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="CES2018十大黑科技前瞻 LUCI先声夺人"><span-->
-                                                                <!--_v-507a7011="">3</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES2018十大黑科技前瞻 LUCI先声夺人</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">22</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl2"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示2-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 67.8571%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种"><span-->
-                                                                <!--_v-507a7011="">4</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">19</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl3"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示3-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="CES 2018开幕,海信“三剑客”披挂上阵"><span-->
-                                                                <!--_v-507a7011="">5</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES 2018开幕,海信“三剑客”披挂上阵</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl4"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示4-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011=""-->
-                                                             <!--title="闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!"><span-->
-                                                                <!--_v-507a7011="">6</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!</span>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl5"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示5-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                            <!--<li class="mediaLi" _v-507a7011="">-->
-                                                <!--<div class="bang" _v-507a7011="">-->
-                                                    <!--<div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>-->
-                                                    <!--<div class="content" _v-507a7011="">-->
-                                                        <!--<div class="left" _v-507a7011="" title="从互联时代进入数据时代——从2018年CES看未来技术发展">-->
-                                                            <!--<span _v-507a7011="">7</span>&nbsp;.&nbsp;&nbsp;<span-->
-                                                                <!--_v-507a7011="">从互联时代进入数据时代——从2018年CES看未来技术发展</span></div>-->
-                                                        <!--<div class="right" _v-507a7011=""><span class="num"-->
-                                                                                                <!--_v-507a7011="">18</span><span-->
-                                                                <!--class="meiti" _v-507a7011="">家媒体报道</span></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="mediaTop tipUl6"  _v-507a7011="" style="display: none;">-->
-                                                    <!--<div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""-->
-                                                         <!--style="top: 62px;">-->
-                                                        <!--传播此声音的相关媒体:这里是提示6-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</li>-->
-                                        <!--</ul>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-lg-6 col-sm-6 col-md-6">-->
-                <!--<div class="ibox-content">-->
-                    <!--<h5>观点1.被问AI威胁论时，她回怼：你看太多好莱坞电影了</h5>-->
-                    <!--<h2>65%</h2>-->
-                    <!--<div class="progress progress-mini">-->
-                        <!--<div style="width: 68%;" class="progress-bar"></div>-->
-                    <!--</div>-->
-                    <!--<div class="m-t-sm small">Server down since 4:32 pm.</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><img src="${rc.contextPath}/statics/pic/weibo_logo.png" width="12%"></h5>
+                        <span class="label label-primary"></span>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="content1" _v-2ad827a2="">
+                                    <div class="mediaVue" _v-507a7011="" _v-2ad827a2="">
+                                        <ul _v-507a7011="">
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 100%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="怼">
+                                                            <span _v-507a7011="">观点1</span>&nbsp;&nbsp;&nbsp;<span
+                                                                _v-507a7011="">怼：被问AI威胁论时，她回怼：你看太多好莱坞电影了。</span></div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">45%</span><span
+                                                                class="meiti" _v-507a7011=""></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl0"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        详情：10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
+                                                        被问AI威胁论时，她回怼：你看太多好莱坞电影了，并表示：“我大多数时间都很积极向上。”
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 47%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="中立"><span _v-507a7011="">观点2</span>&nbsp;.&nbsp;&nbsp;<span
+                                                                _v-507a7011="">中立：面对“自我意识”问题，索菲亚反问：“你又怎么知道自己是人类的？”</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">21%</span><span
+                                                                class="meiti" _v-507a7011=""></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl1"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        详情：面对采访中“自我意识”的问题，索菲亚反问：“你又怎么知道自己是人类？”
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 78.5714%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="CES2018十大黑科技前瞻 LUCI先声夺人"><span
+                                                                _v-507a7011="">3</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES2018十大黑科技前瞻 LUCI先声夺人</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">22</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl2"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示2
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 67.8571%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种"><span
+                                                                _v-507a7011="">4</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">19</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl3"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示3
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="CES 2018开幕,海信“三剑客”披挂上阵"><span
+                                                                _v-507a7011="">5</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES 2018开幕,海信“三剑客”披挂上阵</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl4"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示4
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!"><span
+                                                                _v-507a7011="">6</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl5"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示5
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="从互联时代进入数据时代——从2018年CES看未来技术发展">
+                                                            <span _v-507a7011="">7</span>&nbsp;.&nbsp;&nbsp;<span
+                                                                _v-507a7011="">从互联时代进入数据时代——从2018年CES看未来技术发展</span></div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl6"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示6
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul _v-507a7011="">
+                                            <li class="mediaLi" _v-507a7011="">
+                                            <div class="bang" _v-507a7011="">
+                                                <div class="bangjindu" _v-507a7011="" style="width: 100%;"></div>
+                                                <div class="content" _v-507a7011="">
+                                                    <div class="left" _v-507a7011="" title="怼">
+                                                        <span _v-507a7011="">观点1</span>&nbsp;&nbsp;&nbsp;<span
+                                                            _v-507a7011="">怼：被问AI威胁论时，她回怼：你看太多好莱坞电影了。</span></div>
+                                                    <div class="right" _v-507a7011=""><span class="num"
+                                                                                            _v-507a7011="">45%</span><span
+                                                            class="meiti" _v-507a7011=""></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="mediaTop tipUl0"  _v-507a7011="" style="display: none;">
+                                                <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                     style="top: 62px;">
+                                                    详情：10月25日，沙特未来投资计划大会上，AI机器人索菲亚成为第一个拥有沙特公民身份的机器人。
+                                                    被问AI威胁论时，她回怼：你看太多好莱坞电影了，并表示：“我大多数时间都很积极向上。”
+                                                </div>
+                                            </div>
+                                        </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="content2" _v-2ad827a2="">
+                                    <div class="mediaVue" _v-507a7011="" _v-2ad827a2="">
+                                        <ul _v-507a7011="">
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 100%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="SR定义3D新未来 康得新3D+战略出击CES2018">
+                                                            <span _v-507a7011="">1</span>&nbsp;.&nbsp;&nbsp;<span
+                                                                _v-507a7011="">SR定义3D新未来 康得新3D+战略出击CES2018</span></div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">28</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl0"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体：腾讯游戏、新浪网、网易、太平洋电脑网、凤凰数码、中华网、中国网科学频道、未来网、CSDN、比特网、国际在线、中国日报、和讯科技、科技世界网、新科技、法制晚报、天极网、驱动中国、IT专家网、每日科技网、第一理财网、91资讯站、中国IT研..、中国科学网、IB资讯、中国产业经济信息网、中国经济报、中国新闻网安徽站等
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 89.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品"><span _v-507a7011="">2</span>&nbsp;.&nbsp;&nbsp;<span
+                                                                _v-507a7011="">2018CES曝出IOD新品类 immers打造个人沉浸式“即刻娱乐”新品</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">25</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl1"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示1
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 78.5714%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="CES2018十大黑科技前瞻 LUCI先声夺人"><span
+                                                                _v-507a7011="">3</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES2018十大黑科技前瞻 LUCI先声夺人</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">22</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl2"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示2
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 67.8571%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种"><span
+                                                                _v-507a7011="">4</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">百台机器人合唱 物灵科技CES 2018演绎“灵性”AI新物种</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">19</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl3"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示3
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="CES 2018开幕,海信“三剑客”披挂上阵"><span
+                                                                _v-507a7011="">5</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">CES 2018开幕,海信“三剑客”披挂上阵</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl4"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示4
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011=""
+                                                             title="闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!"><span
+                                                                _v-507a7011="">6</span>&nbsp;.&nbsp;&nbsp;<span _v-507a7011="">闪联Linxee领视等成员闪耀2018 CES展 跨国黑科技获赞誉!</span>
+                                                        </div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl5"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示5
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mediaLi" _v-507a7011="">
+                                                <div class="bang" _v-507a7011="">
+                                                    <div class="bangjindu" _v-507a7011="" style="width: 64.2857%;"></div>
+                                                    <div class="content" _v-507a7011="">
+                                                        <div class="left" _v-507a7011="" title="从互联时代进入数据时代——从2018年CES看未来技术发展">
+                                                            <span _v-507a7011="">7</span>&nbsp;.&nbsp;&nbsp;<span
+                                                                _v-507a7011="">从互联时代进入数据时代——从2018年CES看未来技术发展</span></div>
+                                                        <div class="right" _v-507a7011=""><span class="num"
+                                                                                                _v-507a7011="">18</span><span
+                                                                class="meiti" _v-507a7011="">家媒体报道</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mediaTop tipUl6"  _v-507a7011="" style="display: none;">
+                                                    <div class="mediaTipVue"  _v-1bd7697a="" _v-507a7011=""
+                                                         style="top: 62px;">
+                                                        传播此声音的相关媒体:这里是提示6
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
@@ -582,9 +624,6 @@
         var myChart = echarts.init(document.getElementById('sentiment'));
 
         var option = {
-            title: {
-                text: '网民情感倾向'
-            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -598,7 +637,8 @@
                 }
             },
             legend: {
-                data: ['微博', '微信','网媒','Twitter']
+                data: ['微博', '微信','网媒','Twitter'],
+                textStyle: {fontSize: 16}
             },
             grid: {
                 left: '3%',
@@ -611,6 +651,9 @@
                 axisLabel:{
                     formatter: function(val){
                         return val + '%';
+                    },
+                    textStyle:{
+                        fontSize:16
                     }
                 },
                 boundaryGap: [0, 0.01]
@@ -648,6 +691,170 @@
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         window.onresize = myChart.resize;
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('four_sentiment'));
+
+        var option1 = {
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} {b} :{d}%",
+                textStyle: {
+                    fontSize:14
+                }
+            },
+            legend: {
+                left: 'center',
+                data: ['积极','消极','中立'],
+                textStyle: {fontSize: 15}
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    dataView: {readOnly: false},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series : [
+                {
+                    name: '微博',
+                    type: 'pie',
+                    //roseType:'radius',
+                    radius : '45%',
+                    center: ['18%', '50%'],
+                    data:[
+                        {value:1, name:'积极'},
+                        {value:73, name:'消极'},
+                        {value:26, name:'中立'},
+                        /*{value:335, name:'3'},
+                        {value:1548, name:'4'},
+                        {value:1548, name:'5'}*/
+                    ],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: ' ',
+                            textStyle: {
+                                color: '#ffffff',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                },
+                {
+                    name: '微信',
+                    type: 'pie',
+                    radius : '45%',
+                    center: ['40%', '50%'],
+                    data:[
+                        {value:1, name:'积极'},
+                        {value:40, name:'消极'},
+                        {value:59, name:'中立'},
+                        /*{value:335, name:'3'},
+                        {value:1548, name:'4'}*/
+                    ],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: '',
+                            offset: [,100],
+                            textStyle: {
+                                color: '#ffffff',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                },
+                {
+                    name: '网媒',
+                    type: 'pie',
+                    //roseType:'radius',
+                    radius : '45%',
+                    center: ['62%', '50%'],
+                    data:[
+                        {value:1, name:'积极'},
+                        {value:21, name:'消极'},
+                        {value:78, name:'中立'},
+                        /*{value:335, name:'3'},
+                        {value:1548, name:'4'},
+                        {value:1548, name:'5'}*/
+                    ],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: '',
+                            textStyle: {
+                                color: '#ffffff',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                },
+                {
+                    name: 'Twitter',
+                    type: 'pie',
+                    //roseType:'radius',
+                    radius : '45%',
+                    center: ['84%', '50%'],
+                    data:[
+                        {value:2, name:'积极'},
+                        {value:21, name:'消极'},
+                        {value:77, name:'中立'},
+                        /*{value:335, name:'3'},
+                        {value:1548, name:'4'},
+                        {value:1548, name:'5'}*/
+                    ],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: '',
+                            textStyle: {
+                                color: '#ffffff',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                },
+
+            ],
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option1);
+        window.onresize = myChart1.resize;
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
