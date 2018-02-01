@@ -6,6 +6,26 @@
     #parse("sys/mulheader.html")
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
     <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
+    <style type="text/css">
+        .first-opn{
+            padding-top:10px;
+            padding-bottom: 20px;
+            font-size: 20px;
+        }
+        .first-count{
+            font-size: 18px;
+        }
+        .first-user{
+            font-size: 20px;
+        }
+        .first-content{
+            font-size: 17px;
+            padding-top: 10px
+        }
+        .first-timestamp{
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -13,23 +33,23 @@
         <div class="row"> <!-- /.row -->
             <div class="col-lg-8 col-sm-8 col-md-8">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>首位引发者</h5>
-                        <span class="label label-primary"></span>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 435px;">
-                        <div id="first" style="width: 116%;height:400px;margin-left: -7%;"></div>
+                    <!--<div class="ibox-title">-->
+                        <!--<h5>首位引发者</h5>-->
+                        <!--<span class="label label-primary"></span>-->
+                        <!--<div class="ibox-tools">-->
+                            <!--<a class="collapse-link">-->
+                                <!--<i class="fa fa-chevron-up"></i>-->
+                            <!--</a>-->
+                            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+                                <!--<i class="fa fa-wrench"></i>-->
+                            <!--</a>-->
+                            <!--<a class="close-link">-->
+                                <!--<i class="fa fa-times"></i>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 482px;">
+                        <div id="first" style="width: 116%;height:450px;margin-left: -7%;"></div>
                     </div>
                 </div>
             </div>
@@ -318,14 +338,14 @@
         dataZoom: [{
             type: 'inside',
             start: 0,
-            end: 10
+            end: 100
         }, {
             start: 0,
             end: 10,
             handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
             handleSize: '80%',
             handleStyle: {
-                color: 'rgb(255, 153, 186)',
+                color: '#ffffff',
                 shadowBlur: 3,
                 shadowColor: 'rgba(0, 0, 0, 0.6)',
                 shadowOffsetX: 2,
@@ -347,8 +367,7 @@
                 data: data,
                 markPoint: {
                     symbol: 'pin',
-                    symbolSize: 20,
-
+                    symbolSize: 30,
                     itemStyle:{
                         normal:{
                             color:'#1ca195',
