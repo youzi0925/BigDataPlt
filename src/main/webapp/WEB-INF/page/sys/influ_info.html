@@ -219,7 +219,7 @@
             x: 'left',
             data: ['微博辟谣', '微博谣言', '微信辟谣', '微信谣言', '网媒辟谣', '网媒谣言'],
             textStyle: {
-                fontSize: 15 // 用 legend.textStyle.fontSize 更改示例大小
+                fontSize: 16 // 用 legend.textStyle.fontSize 更改示例大小
             }
         },
         series: [{
@@ -234,7 +234,7 @@
                     position: 'inner',
                     textStyle : {
                         fontWeight : 'normal',
-                        fontSize : 15
+                        fontSize : 16
                     }
                 }
             },
@@ -272,7 +272,22 @@
                     {value: 24, name: '微信谣言'},
                     {value: 343, name: '网媒辟谣'},
                     {value: 0, name: '网媒谣言'}
-                ]
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    normal: {
+                        label: {
+                            textStyle: {
+                                // 用 itemStyle.normal.label.textStyle.fontSize 來更改餅圖上項目字體大小
+                                fontSize: 16
+                            }
+                        }
+                    }
+                }
             }
         ]
     };
