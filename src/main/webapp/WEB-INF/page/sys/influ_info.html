@@ -32,8 +32,11 @@
                             <div class="media-body ">
                                 <div class="col-lg-8 col-sm-8 col-md-8" style="padding: 0 !important;margin-top: 20px;overflow: hidden">
                                     <p style="font-size: 20px;font-family: 宋体;color:#5e6e7e;text-indent: 2em;">
-                                        自2016年4月11号起，朋友圈疯传“最新设计的国际通用报警求助手势”。此手势形状既像中国报警号码110又像美国报警电话911，所以国际通用。
-                                        对此警方表示，没有听说过此事，并郑重提醒市民：遇到危险请及时拨打110。
+                                        自2016年4月11号起，朋友圈疯传“最新设计的国际通用报警求助手势”。此手势形状既像中国报警号码110又像美国报警电话911，国际通用。
+                                     警方表示：遇到危险请及时拨打110。
+                                    </p>
+                                    <p style="font-size: 20px;font-family: 宋体;color:#5e6e7e;text-indent: 2em;">
+                                        该事件引发各地警方纷纷发布辟谣，各大媒体争相转发，不为人知的报警手势只会害人。
                                     </p>
                                 </div>
                                 <div class="col-lg-4 col-sm-4 col-md-4" style="padding: 0 !important;margin-top: 20px">
@@ -64,8 +67,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height:300px;">
-                        <div id="main1" style="width: 120%;height:140%;"></div>
+                            <div class="ibox-content inspinia-timeline" style="padding: 0 !important;margin-top:  0 !important;overflow: hidden">
+
+                                    <img src="${rc.contextPath}/statics/pic/weibo_logo.png" width="10%" height="auto" style="float: left;margin-left:9%; margin-right: 5%;">
+                                    <img src="${rc.contextPath}/statics/pic/weixin_logo.png" width="10%" height="auto" style="float: left;margin-right: 5%;">
+                                    <img src="${rc.contextPath}/statics/pic/renmin_photo.png" width="10%" height="auto" style="float: left;margin-right: 5%;">
+                                    <div id="main1" style="width: 120%;height:300px;margin-left: -25%"></div>
+
+                            </div>
                     </div>
                 </div>
             </div>
@@ -213,7 +222,7 @@
         },
         legend: {
             orient: 'vertical',
-            x: 'left',
+            x: 'right',
             data: ['微博辟谣', '微博谣言', '微信辟谣', '微信谣言', '网媒辟谣', '网媒谣言'],
             textStyle: {
                 fontSize: 16 // 用 legend.textStyle.fontSize 更改示例大小
@@ -224,7 +233,7 @@
             type: 'pie',
             selectedMode: 'single',
             radius: [0, '30%'],
-            center: ['50%', '40%'],
+            center: ['40%', '40%'],
 
             label: {
                 normal: {
@@ -260,7 +269,7 @@
                 name: '关键信息',//外面显示的
                 type: 'pie',
                 radius: ['40%', '55%'],
-                center: ['50%', '40%'],
+                center: ['40%', '40%'],
 
                 data: [
                     {value: 298, name: '微博辟谣'  },
