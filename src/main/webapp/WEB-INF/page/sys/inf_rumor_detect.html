@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>谣言模型</title>
+    <title>谣言检测</title>
     #parse("sys/mulheader.html")
     <link rel="stylesheet" href="${rc.contextPath}/statics/css/bigdata-style.css">
-    <script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <script src='${rc.contextPath}/statics/libs/echarts.simple.js'></script>
+    <script src="${rc.contextPath}/statics/libs/echarts-wordcloud.js"></script>
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/dataTables/datatables.min.css">
+    <script src="${rc.contextPath}/statics/libs/datatables.min.js"></script>
+    <style type="text/css">
+        #keywords_table tr td,th{
+            font-size: 18px;
+        }
+        #keywords_table1 tr td,th{
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -30,32 +39,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;" id="recon_info">
+
+                    <div class="ibox-content inspinia-timeline" style="display: block;" id="recon_info2">
                         <!--<h1>这里是内容</h1>-->
                         <div class="row"> <!-- /.row -->
-                            <div class="col-lg-6 col-sm-6 col-md-6">
-                                <div class="feed-element">
-                                    <div class="media-body " style="padding-top: 20px">
-                                        <!-- <strong style="font-size: 20px;font-weight: 600;color:#5e6e7e;display: inline-block;margin-bottom: 10px;">基于LSTM的谣言检测模型</strong> <br>>
-                                         <!--<small class="text-muted"><a href="http://tech.sina.com.cn/d/i/2017-10-27/doc-ifynfvar4425645.shtml" style="font-size: 13px;font-family: 宋体;">来源：新浪科技 发布于2017/10/31</a></small>-->
-                                        <!--<br>-->
-                                        <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;">
-                                            基于LSTM的谣言检测模型:</p>
-                                        <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                            当一个谣言出现，这个谣言被转发，评论，就会产生一系列随时间变化的帖子。将帖子按照时间长度进行进行划分区间,然后用tf-idf特征代表这个区间，在RNN的变体LSTM模型中，文本看成可变长度时间序列，此模型判断准确率达到81.6%</p>
-                                        <div style="text-align: left;">
-                                            <!-- <iframe src="http://www.baidu.com" name="iframe_a"></iframe>-->
-                                            <p><a href="C:\Program Files (x86)\NetSarang\Xshell 5\Xshell.exe" target="iframe_a">
-                                                打开服务器
-                                            </a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6 col-md-6">
+                            <div class="col-lg-12 col-sm-12 col-md-12">
                                 <div class="info_img">
-                                    <img src="${rc.contextPath}/statics/pic/my_lstm.jpg" width="100%" height="auto">
+                                    <img src="${rc.contextPath}/statics/pic/data_pre.gif" width="100%" height="480px">
                                 </div>
+
                             </div>
 
                         </div>
@@ -67,7 +59,7 @@
             <div class="col-lg-12 col-sm-12 col-md-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>原始图片及图片出处</h5>
+                        <h5>谣言检测模型</h5>
                         <!--<span class="label label-primary">随便写写</span>-->
                         <div class="ibox-tools">
                             <a class="collapse-link">
@@ -81,25 +73,312 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content inspinia-timeline" style="display: block;height: 400px" id="recon_info1">
+
+                    <div class="ibox-content inspinia-timeline" style="display: block;" id="recon_info">
                         <!--<h1>这里是内容</h1>-->
                         <div class="row"> <!-- /.row -->
-                            <div class="col-lg-4 col-sm-4 col-md-4">
-                                    <div>
-                                        <img src="${rc.contextPath}/statics/pic/influ_info.jpg" width="100%" height="400px">
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="feed-element">
+                                    <div class="media-body " style="padding-top: 20px">
+                                        <!-- <strong style="font-size: 20px;font-weight: 600;color:#5e6e7e;display: inline-block;margin-bottom: 10px;">基于LSTM的谣言检测模型</strong> <br>>
+                                         <!--<small class="text-muted"><a href="http://tech.sina.com.cn/d/i/2017-10-27/doc-ifynfvar4425645.shtml" style="font-size: 13px;font-family: 宋体;">来源：新浪科技 发布于2017/10/31</a></small>-->
+                                        <!--<br>-->
+                                        <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;">
+                                            基于LSTM的谣言检测模型:</p>
+                                        <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
+                                            当一个谣言出现，这个谣言被转发，评论，就会产生一系列随时间变化的帖子。将帖子按照时间长度进行进行划分区间,然后用tf-idf特征代表这个区间，在RNN的变体LSTM模型中，文本看成可变长度时间序列，此模型判断准确率达到81.6%</p>
+
+                                        <!--<h1>这里是内容</h1>-->
+                                        <a class="btn btn-sm btn-primary" href="C:\Program Files (x86)\NetSarang\Xshell 6\Xshell.exe" style="font-size: 15px;">打开服务器</a>
+
+                                        <!--<h1>这里是内容</h1>-->
+                                        <div style="text-align: left;">
+                                            <!-- <iframe src="http://www.baidu.com" name="iframe_a"></iframe>-->
+                                            <p><img src="${rc.contextPath}/statics/pic/my_lstm.jpg" width="100%" height="auto"></p>
+                                        </div>
+
                                     </div>
+                                </div>
                             </div>
-                            <div class="col-lg-4 col-sm-4 col-md-4">
-                                <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;
-                                height:100px; vertical-align:middle; line-height:20px; ">
-                                    出处1:兰花指</p>
-                                <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;
-                                height:100px; vertical-align:middle; line-height:20px; ">
-                                    出处2:数字7</p>
-                                <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;
-                                height:100px; vertical-align:middle; line-height:20px; ">
-                                    出处3:某位运动员胜利庆祝手势</p>
-                                <p></p>
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="info_img">
+                                    <img src="${rc.contextPath}/statics/pic/rnnn.gif" width="100%" height="480px">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>检测事件库</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="height: 530px;">
+                        <table class="table table-striped" id="keywords_table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>事件描述</th>
+                                <th>模型判断</th>
+                                <th>真实结果</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>27岁四川女孩，已穷游90个国家</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>清华实验室爆炸32岁博士后遇难 母亲卖鸡蛋供其上学[悲伤]</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>犯罪学证据:猫在主人死后不久就开始吃他们的尸体导致取证困难</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>路上推销福建安溪铁观音不是铁观音而是关音土-迷魂药，</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>以下食物三小时之内不宜同时食用</td>
+                                <td>non-rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>请注意：男人啤酒喝多了会女性化，啤酒中含有植物雌激素</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>六旬清扫工为省车费步行3小时讨要万元工资</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>考古学家发现全新人种：距今1.4万年的#马鹿洞人#</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>巴厘岛飞北京航班出故障 机上氧气面罩全弹出 紧急备降马来西亚</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>不明觉厉！《科学》评出2015十大科学突破</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>公务“吃住行”新标准：住酒店最高1100元标准</td>
+                                <td>rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>牛！我国成功研制电动车“超强电池” 充电7秒续航35公里[给力]</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>人民网揭出惊天黑幕：中国75%电表都被蓄意加速</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>消防员穿越火线救出19人 把头盔让给婴儿</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>男生跑步跑“断”腿 6年碳酸饮料喝成“骨脆脆”</td>
+                                <td>rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>爱尔兰结婚不许离婚，但是可以选择年限1到100年</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>蛔虫美女问世：减肥不用运动不用节食：吃蛔虫卵。</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>锐见：冷血和道德解释不了万科宝能攻防战</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>同性恋可以结婚了，广州民政局太给力了</td>
+                                <td>non-rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>上海5月10日起出租车起步费上调至15块 单价每公里3.1元</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>家长应陪孩子观看的100集BBC经典纪录片。</td>
+                                <td>rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td>《爱情公寓》第三季，将在今晚黄金时段“CCTV8”电视剧频道，隆重开播。</td>
+                                <td>non-rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td>故宫养心殿百年首次大修 2020年将重焕光彩</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>泰国载中国游客巴士翻车 已至10余人遇难</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td>“顶花”黄瓜或有猫腻，生长剂含避孕药</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>央视快讯：山体滑坡致#深圳十余栋楼房倒塌#！有人被困</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td>早期的《焦点访谈》曾经是由陈佩斯主持的</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td>村民上海卖煎饼年收入几十万</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td>中韩中澳自贸协定今起生效 哪些商品可以马上免税</td>
+                                <td>non-rumor</td>
+                                <td>non-rumor</td>
+
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>为了孩子，请拒吃转基因食品！</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>图片溯源</h5>
+                        <!--<span class="label label-primary">随便写写</span>-->
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content inspinia-timeline" style="display: block;height: 500px" id="recon_info1">
+                        <!--<h1>这里是内容</h1>-->
+                        <div class="row"> <!-- /.row -->
+                            <div class="col-lg-8 col-sm-8 col-md-8">
+                                <div class="info_img">
+                                    <img src="${rc.contextPath}/statics/pic/pic.gif" width="100%" height="480px">
+                                </div>
                             </div>
                             <div class="col-lg-4 col-sm-4 col-md-4">
                                 <div id="myCarousel" class="carousel slide" >
@@ -112,15 +391,15 @@
                                     <!-- 轮播（Carousel）项目 -->
                                     <div class="carousel-inner">
                                         <div class="item active" >
-                                            <img src="${rc.contextPath}/statics/pic/finger_flower.png" width="100%"  style="height: 400px !important;" alt="First slide">
+                                            <img src="${rc.contextPath}/statics/pic/finger_flower.png" width="100%"  style="height: 480px !important;" alt="First slide">
                                             <div class="carousel-caption" style="color:#F00">兰花指</div>
                                         </div>
                                         <div class="item">
-                                            <img src="${rc.contextPath}/statics/pic/seven.jpg" width="100%" style="height: 400px !important;" alt="Second slide">
+                                            <img src="${rc.contextPath}/statics/pic/seven.jpg" width="100%" style="height: 480px !important;" alt="Second slide">
                                             <div class="carousel-caption" style="color:#F00">数字7</div>
                                         </div>
                                         <div class="item">
-                                            <img src="${rc.contextPath}/statics/pic/player.jpg" width="100%" style="height: 400px !important;" alt="Third slide">
+                                            <img src="${rc.contextPath}/statics/pic/player.jpg" width="100%" style="height: 480px !important;" alt="Third slide">
                                             <div class="carousel-caption" >庆祝手势</div>
                                         </div>
                                     </div>
@@ -139,13 +418,79 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 </div>
+<script>
+    var change_category = new Vue({
+        el: '#info_category',
+        methods: {
+            show_text: function () {
+                $('#text').addClass("info_bottom");
+                $('#video').removeClass("info_bottom");
+
+                $('#info_video').attr("class", "info_hidden");
+                $('#info_text').attr("class", "info_show");
+            },
+            show_video: function () {
+                $('#video').addClass("info_bottom");
+                $('#text').removeClass("info_bottom");
+
+                $('#info_text').attr("class", "info_hidden");
+                $('#info_video').attr("class", "info_show");
+            }
+        }
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#keywords_table').DataTable({
+            searching: false,
+            ordering: false, /*禁用排序功能*/
+            /*bInfo: false,*/
+
+            bLengthChange: false, /*禁用Show entries*/
+            info: false,
+            oLanguage: {
+                sLengthMenu: "每页 _MENU_ 行数据",
+                oPaginate: {
+                    sNext: '<i class="fa fa-chevron-right" ></i>', /*图标替换上一页,下一页*/
+                    sPrevious: '<i class="fa fa-chevron-left" ></i>'
+                }
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#keywords_table1').DataTable({
+            searching: false,
+            ordering: false, /*禁用排序功能*/
+            /*bInfo: false,*/
+
+            bLengthChange: false, /*禁用Show entries*/
+            info: false,
+            oLanguage: {
+                sLengthMenu: "每页 _MENU_ 行数据",
+                oPaginate: {
+                    sNext: '<i class="fa fa-chevron-right" ></i>', /*图标替换上一页,下一页*/
+                    sPrevious: '<i class="fa fa-chevron-left" ></i>'
+                }
+            }
+        });
+    });
+</script>
 
 <script>
-    $('#myCarousel').carousel('cycle')
+    $(document).ready(function(){
+        $('#myCarousel').carousel({interval:3000});//每隔5秒自动轮播
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#myCarouse2').carousel({interval:100000});//每隔5秒自动轮播
+    });
 </script>
 </body>
 </html>
