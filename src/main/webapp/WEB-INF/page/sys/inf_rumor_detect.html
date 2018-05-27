@@ -83,14 +83,36 @@
                                         <!-- <strong style="font-size: 20px;font-weight: 600;color:#5e6e7e;display: inline-block;margin-bottom: 10px;">基于LSTM的谣言检测模型</strong> <br>>
                                          <!--<small class="text-muted"><a href="http://tech.sina.com.cn/d/i/2017-10-27/doc-ifynfvar4425645.shtml" style="font-size: 13px;font-family: 宋体;">来源：新浪科技 发布于2017/10/31</a></small>-->
                                         <!--<br>-->
-                                        <p style="font-size: 20px;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;">
-                                            基于LSTM的谣言检测模型:</p>
-                                        <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                            当一个谣言出现，这个谣言被转发，评论，就会产生一系列随时间变化的帖子。将帖子按照时间长度进行进行划分区间,然后用tf-idf特征代表这个区间，在RNN的变体LSTM模型中，文本看成可变长度时间序列，此模型判断准确率达到81.6%</p>
 
-                                        <!--<h1>这里是内容</h1>-->
-                                        <a class="btn btn-sm btn-primary" href="C:\Program Files (x86)\NetSarang\Xshell 6\Xshell.exe" style="font-size: 15px;">打开服务器</a>
-
+                                        <p style="font-size: 20px;font-family: 宋体;padding-top: 0px;color:#000;text-indent: 0em;">
+                                            基于LSTM的谣言检测模型性能</p>
+                                        <table class="table table-striped" id="keywords_table22" style="font-size:20px;">
+                                            <thead>
+                                            <tr>
+                                                <th>类别</th>
+                                                <th>Accuracy</th>
+                                                <th>Precision</th>
+                                                <th>Recall</th>
+                                                <th>F1</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>Rumor</td>
+                                                <td>0.816</td>
+                                                <td>0.766</td>
+                                                <td>0.888</td>
+                                                <td>0.833</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Non-Rumor</td>
+                                                <td>0.816</td>
+                                                <td>0.873</td>
+                                                <td>0.778</td>
+                                                <td>0.823</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                         <!--<h1>这里是内容</h1>-->
                                         <div style="text-align: left;">
                                             <!-- <iframe src="http://www.baidu.com" name="iframe_a"></iframe>-->
@@ -143,9 +165,9 @@
                             <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>27岁四川女孩，已穷游90个国家</td>
-                                <td>non-rumor</td>
-                                <td>non-rumor</td>
+                                <td>网传国际通用报警求助手势，假的？</td>
+                                <td>rumor</td>
+                                <td>rumor</td>
 
                             </tr>
                             <tr>
@@ -391,15 +413,15 @@
                                     <!-- 轮播（Carousel）项目 -->
                                     <div class="carousel-inner">
                                         <div class="item active" >
-                                            <img src="${rc.contextPath}/statics/pic/finger_flower.png" width="100%"  style="height: 480px !important;" alt="First slide">
+                                            <img src="${rc.contextPath}/statics/pic/finger_flower1.jpg" width="100%"  style="height: 480px !important;" alt="First slide">
                                             <div class="carousel-caption" style="color:#F00">兰花指</div>
                                         </div>
                                         <div class="item">
-                                            <img src="${rc.contextPath}/statics/pic/seven.jpg" width="100%" style="height: 480px !important;" alt="Second slide">
+                                            <img src="${rc.contextPath}/statics/pic/seven1.jpg" width="100%" style="height: 480px !important;" alt="Second slide">
                                             <div class="carousel-caption" style="color:#F00">数字7</div>
                                         </div>
                                         <div class="item">
-                                            <img src="${rc.contextPath}/statics/pic/player.jpg" width="100%" style="height: 480px !important;" alt="Third slide">
+                                            <img src="${rc.contextPath}/statics/pic/player1.jpg" width="100%" style="height: 480px !important;" alt="Third slide">
                                             <div class="carousel-caption" >庆祝手势</div>
                                         </div>
                                     </div>
