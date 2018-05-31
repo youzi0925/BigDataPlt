@@ -44,23 +44,23 @@
                         <!--<h1>这里是内容</h1>-->
                         <div class="row"> <!-- /.row -->
 
-                            <div class="col-lg-4 col-sm-4 col-md-4" style="margin-top: 50px">
+                            <div class="col-lg-5 col-sm-5 col-md-5" style="margin-top: 50px">
                                 <p style="font-size: 22px;font-weight:600;font-family: 宋体;padding-top: 15px;color:#000;text-indent: 2em;">
                                     基于LSTM的谣言检测模型:</p>
                                 <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
                                     爬取微博上关于报警求助手势事件共343个帖子，时间从2016年4月11日1时至2016年4月14日17时,判断流程如下：</p>
                                 <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                   1.动态划分事件时间间隔，每个时间间隔内的帖子用TF-IDF特征表示</p>
+                                   1.动态划分事件时间间隔，每个时间间隔内的帖子用TF-IDF特征表示该间隔内文本的重要程度</p>
                                 <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                    2.将TF-IDF特征非线性映射成低维表示，降低模型复杂度</p>
+                                    2.将TF-IDF特征非线性映射成低维表示，降低模型计算复杂度</p>
                                 <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                   3.利用LSTM的长时间依赖特性捕获谣言扩散的动态时间信号特征</p>
+                                   3.根据谣言扩散的动态时间信号特征，用LSTM的长时间依赖特性来捕获</p>
                                 <p style="font-size: 20px;font-family: 宋体;color:#000;text-indent: 2em;">
-                                    4.利用softmax层判断报警求助手势事件是否是谣言</p>
+                                    4.利用softmax层进行分类，判断报警求助手势事件是否是谣言</p>
                             </div>
-                            <div class="col-lg-8 col-sm-8 col-md-8">
+                            <div class="col-lg-7 col-sm-7 col-md-7">
                                 <div class="info_img">
-                                    <img src="${rc.contextPath}/statics/pic/lstm.jpg" width="100%" height="550px">
+                                    <img src="${rc.contextPath}/statics/pic/lstm.jpg" width="100%" height="500px">
                                 </div>
 
                             </div>
@@ -205,7 +205,7 @@
                                 <div><p style="font-size: 16px;font-weight:600;border: 2px solid black;margin: 70px 0">关键字爬取谷歌图片</p></div>
                                 <div><p style="font-size: 16px;font-weight:600;border: 2px solid black;margin: 70px 0">爬取图片文本信息</p></div>
                                 <div><p style="font-size: 16px;font-weight:600;border: 2px solid black;margin: 70px 0">对图片进行人手检测</p></div>
-                                <div><p style="font-size: 16px;font-weight:600;border: 2px solid black;margin: 70px 0">分析多模态获得出处</p></div>
+                                <div><p style="font-size: 16px;font-weight:600;border: 2px solid black;margin: 70px 0">图文结合溯源出处</p></div>
                             </div>
                             <div class="col-lg-4 col-sm-4 col-md-4">
                                 <div id="myCarousel" class="carousel slide" >
